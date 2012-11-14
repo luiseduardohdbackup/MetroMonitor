@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="MetroMonitor.WebService.DataRepository" CodeBehind="DataRepository.svc.cs" %>
