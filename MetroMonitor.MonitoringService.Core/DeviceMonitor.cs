@@ -36,9 +36,11 @@ namespace MetroMonitor.MonitoringService.Core
             Logger.Debug(d => d("Initialising Monitoring on Device {0}", _deviceName));
             using (var context = _contextFactory.GetContext())
             {
+                var test = context.DeviceCounters;
                 var counters = context.DeviceCounters
                     .Include(x => x.Device)
                     .Where(d => d.Device.Name == _deviceName)
+                   // .Where(d => d.Device.Id == 2)
                     .Where(d => d.Deleted != 1)
                     .ToList();
                 foreach (var counter in counters

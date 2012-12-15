@@ -49,12 +49,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccessService.cs" />
+    <Compile Include="DataRepresentationService.cs" />
     <Compile Include="Exceptions\InvalidDeviceNameException.cs" />
     <Compile Include="Exceptions\NonExisitentDeviceException.cs" />
     <Compile Include="Extensions\DeviceCounterBaseExtensions.cs" />
     <Compile Include="IDataAccessService.cs" />
+    <Compile Include="IDataRepresentationService.cs" />
+    <Compile Include="IStatisticsProcessingService.cs" />
     <Compile Include="PingService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatisticsProcessingService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
