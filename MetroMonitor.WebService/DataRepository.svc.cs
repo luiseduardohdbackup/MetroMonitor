@@ -9,7 +9,7 @@ namespace MetroMonitor.WebService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "DataRepository" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select DataRepository.svc or DataRepository.svc.cs at the Solution Explorer and start debugging.
-    public class DataRepository: IDataRepository
+    public class DataRepository: IDataRepository, IDeviceContracts
     {
         private IDataAccessService _dataAccessService;
 
@@ -19,10 +19,7 @@ namespace MetroMonitor.WebService
                 new DataAccessService(ConfigurationManager.ConnectionStrings["MetroMonitorData"].ConnectionString);
         }
 
-        public bool AddDevice(DeviceCreate device)
-        {
-            return _dataAccessService.AddNewDevice(device);
-        }
+      
 
         public string GetData(int value)
         {
@@ -64,5 +61,40 @@ namespace MetroMonitor.WebService
             }
             return composite;
         }
+
+        #region Device Operations
+
+       public  bool AddDevice(DeviceCreate device) {
+           return  _dataAccessService.AddNewDevice(device);
+        }
+
+
+        public  bool DeleteDevice(int deviceId) {
+            return _dataAccessService.DeleteDevice(deviceId);
+        }
+
+        public bool EditDevice(DeviceEdit device) {
+
+            return _dataAccessService.EditDevice(device);
+        }
+
+        public DeviceDataContract DeviceDetails(int DeviceId) {
+
+            return new DeviceDataContract
+            {
+                deviceDetails = _dataAccessService.GetDeviceDetails(DeviceId)
+            };
+        }
+
+
+        public DeviceDataContract LoadDeviceList() {
+
+            return new DeviceDataContract
+            {
+                devicelist = _dataAccessService.LoadDeviceList()
+            };
+        }
+
+        #endregion
     }
 }

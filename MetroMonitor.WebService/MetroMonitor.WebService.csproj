@@ -67,6 +67,7 @@
       <DependentUpon>DataRepository.svc</DependentUpon>
     </Compile>
     <Compile Include="IDataRepository.cs" />
+    <Compile Include="IDeviceContracts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

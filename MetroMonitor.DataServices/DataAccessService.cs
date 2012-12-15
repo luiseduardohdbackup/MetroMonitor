@@ -29,23 +29,29 @@ namespace MetroMonitor.DataServices
             string deviceName = model.DeviceName;
           //  if (!PingService.IsValidDeviceName(deviceName)) throw new InvalidDeviceNameException(deviceName);
          
-            _context.Devices.Add(new Device {Name = model.DeviceName});
+            _context.Devices.Add(new Device {Name = model.DeviceName, Deleted = 0});
             _context.SaveChanges();
             return true;
         }
         
-        public void DeleteDevice(DeviceCreate model)
+        public bool DeleteDevice(int id)
         {
-            Device device = _context.Devices.FirstOrDefault(d => d.Id == model.Id);
-            if (device == null) return;
+            Device device = _context.Devices.FirstOrDefault(d => d.Id == id);
+            if (device == null) return false; //throw exception 
 
-            _context.Devices.Remove(device);
+            device.Deleted = 1;
             _context.SaveChanges();
+            return true;
+        }
+
+        public bool EditDevice(DeviceEdit device) {
+            return true; 
         }
 
         public DeviceList LoadDeviceList()
         {
             IQueryable<Device> devices = from d in _context.Devices select d;
+
             List<DeviceDetails> deviceCollection = devices.Select(d => new DeviceDetails
                                                                            {
                                                                                Id = d.Id,

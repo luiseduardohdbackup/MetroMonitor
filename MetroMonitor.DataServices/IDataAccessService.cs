@@ -15,10 +15,12 @@ namespace MetroMonitor.DataServices
     {
         //Device Operation Method Contracts
         bool AddNewDevice(DeviceCreate model);
-        void DeleteDevice(DeviceCreate model);
+        bool DeleteDevice(int id);
+        bool EditDevice(DeviceEdit device);
         DeviceList LoadDeviceList();
         DeviceEdit GetDeviceEdit(int id);
         DeviceDetails GetDeviceDetails(int id);
+
       
         //Generic Data Operations
         ResultsData GetResults();

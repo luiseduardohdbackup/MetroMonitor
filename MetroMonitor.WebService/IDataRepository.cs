@@ -15,9 +15,7 @@ namespace MetroMonitor.WebService
     [ServiceContract]
     public interface IDataRepository
     {
-        [OperationContract]
-        bool AddDevice(DeviceCreate device);
-
+      
         [OperationContract]
         string GetData(int value);
 
