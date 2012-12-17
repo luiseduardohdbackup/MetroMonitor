@@ -112,9 +112,38 @@ namespace MetroMonitor.DataServices
             throw new System.NotImplementedException();
         }
 
-        public CounterDetails LoadCounterList(CounterCreate model)
+        public IList<CounterDetails> LoadCounterList(int deviceId)
         {
-            throw new System.NotImplementedException();
+            var metrics = (from c in _context.DeviceCounters where c.Device.Id == deviceId select c).ToList();
+
+            var metricList = new List<CounterDetails>(); 
+
+            foreach (var metric in metrics)
+            {
+                var counterDetails = new CounterDetails
+                {
+
+                    Counter = new CounterBase
+                    {
+                        Description = metric.GetDescription(),
+                        LogInterval = metric.LogInterval,
+                        MaxThreshold = (int)metric.MaxThreshold,
+                        MinThreshold = (int)metric.MinThreshold,
+                        ReadInterval = metric.ReadInterval
+                    },
+
+                    Device = new DeviceDetails
+                    {
+                        DeviceName = metric.Device.Name,
+                        Id = metric.Device.Id
+
+                    }
+                };
+
+                metricList.Add(counterDetails);
+
+            }
+            return metricList;
         }
 
         public CounterCreate GetMetricCreateView(int id, CounterCreate type)
@@ -127,17 +156,45 @@ namespace MetroMonitor.DataServices
             throw new System.NotImplementedException();
         }
 
-        public CounterCreate GetMetricDetailsView(CounterCreate model)
+        public CounterDetails GetMetricDetails(int deviceId, int counterId)
         {
-            throw new System.NotImplementedException();
+            var metric = (from dc in _context.DeviceCounters where dc.Id == counterId && dc.Device.Id == deviceId select dc).FirstOrDefault();
+
+            return new CounterDetails
+            {
+
+                Counter = new CounterBase
+                {
+                    Description = metric.GetDescription(),
+                    LogInterval = metric.LogInterval,
+                    MaxThreshold = (int)metric.MaxThreshold,
+                    MinThreshold = (int)metric.MinThreshold,
+                    ReadInterval = metric.ReadInterval
+                },
+
+                Device = new DeviceDetails
+                {
+                    DeviceName = metric.Device.Name,
+                    Id = metric.Device.Id
+
+                }
+            };
         }
 
-        public int DeleteMetric(int id)
+        public bool DeleteMetric(int id)
         {
-            throw new System.NotImplementedException();
+            var metric = (from d in _context.DeviceCounters where d.Id == id select d).FirstOrDefault();
+            if (metric != null)
+            {
+                metric.Deleted = 1;
+                _context.SaveChanges();
+                return true;
+            }
+            return false;
+
         }
 
-        public int AddNewMetric(CounterCreate model)
+        public bool AddNewMetric(CounterCreate model)
         {
             var device = _context.Devices.FirstOrDefault(d => d.Id == model.DeviceId);
             //var mapped = Mapper.Map<MetricBase, DeviceCounterBase>(model.Metric);
@@ -173,12 +230,40 @@ namespace MetroMonitor.DataServices
 
             _context.DeviceCounters.Add(counter);
             _context.SaveChanges();
-            return model.DeviceId;
+            return true;
         }
 
-        public int UpdateMetric(EditCounter model)
+        public bool UpdateMetric(EditCounter model)
         {
-            throw new System.NotImplementedException();
+            var counterInfo = (from d in _context.DeviceCounters
+                               where d.Id == model.Id
+                               select d).FirstOrDefault();
+
+
+            if (counterInfo == null)
+            {
+                return false;
+            }
+                      
+
+            if (counterInfo is DevicePerformanceCounter)
+            {
+                var UpdateDetails = (PerformanceCounterMetric)model.UpdatedCounterDetails;
+                var performanceInfo = (DevicePerformanceCounter)counterInfo;
+                                             
+                performanceInfo.LogInterval = model.UpdatedCounterDetails.LogInterval;
+                performanceInfo.ReadInterval = model.UpdatedCounterDetails.ReadInterval;
+                performanceInfo.MaxThreshold = model.UpdatedCounterDetails.MaxThreshold;
+                performanceInfo.MinThreshold = model.UpdatedCounterDetails.MinThreshold;
+                performanceInfo.InstanceName = UpdateDetails.InstanceName;
+                
+                _context.SaveChanges();
+                return true;
+
+            }
+            return false;
         }
+
+      
     }
 }

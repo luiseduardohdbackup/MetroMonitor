@@ -20,7 +20,7 @@ namespace MetroMonitor.WebService
         string GetData(int value);
 
         [OperationContract]
-        ResultsData GetResult();
+        CompositeType GetResult();
 
         [OperationContract]
         CompositeType GetTestData();

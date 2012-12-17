@@ -28,13 +28,13 @@ namespace MetroMonitor.DataServices
         //Counter Opertions Method Contracts
         
         EditCounter GetCounterEditView(int id);
-        CounterDetails LoadCounterList(CounterCreate model);
+        IList<CounterDetails> LoadCounterList(int deviceId);
         CounterCreate GetMetricCreateView(int id, CounterCreate type);
         CounterDelete LoadCounterToDelete(int id);
-        CounterCreate GetMetricDetailsView(CounterCreate model);
-        int DeleteMetric(int id);
-        int AddNewMetric(CounterCreate metric);
-        int UpdateMetric(EditCounter model);
+        CounterDetails GetMetricDetails(int deviceId, int counterId);
+        bool DeleteMetric(int id);
+        bool AddNewMetric(CounterCreate metric);
+        bool UpdateMetric(EditCounter model);
      
 
 

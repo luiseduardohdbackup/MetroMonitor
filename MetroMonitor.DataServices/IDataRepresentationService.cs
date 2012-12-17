@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using MetroMonitor.ViewModels.Statistics;
 using System.Threading.Tasks;
+using MetroMonitor.Entities;
 
 namespace MetroMonitor.DataServices
 {
@@ -12,5 +14,8 @@ namespace MetroMonitor.DataServices
         //GraphData GetGraphCounterView(int id, string deviceName);
         //GraphCreate GetGraphIndexView();
         //GraphMetaData GetGraphMetaDataView(int id);
+        GraphData GetSystemOverviewGraph(int deviceId);
+        List<Result> GetResultSet(int deviceId);
+     
     }
 }

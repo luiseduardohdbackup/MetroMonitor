@@ -63,16 +63,22 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataMembers\CounterDataContract.cs" />
+    <Compile Include="DataMembers\DeviceDataContract.cs" />
+    <Compile Include="DataMembers\StatisticsDataContract.cs" />
     <Compile Include="DataRepository.svc.cs">
       <DependentUpon>DataRepository.svc</DependentUpon>
     </Compile>
+    <Compile Include="DataMembers\GraphDataContract.cs" />
+    <Compile Include="ICounterContracts.cs" />
     <Compile Include="IDataRepository.cs" />
     <Compile Include="IDeviceContracts.cs" />
+    <Compile Include="IGraphContract.cs" />
+    <Compile Include="IStatisticsContract.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="DataMembers\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Web.Debug.config">

@@ -15,5 +15,7 @@ namespace MetroMonitor.DataServices
         //DeviceAvailabilityCollection GetDeviceAvailabilityView();
 
         //ThresholdBreachedSystemsCollection GetThresholdBreachedSystemDeviceStatusList();
+
+        Status GetCurrentStatus(int counterId);
     }
 }

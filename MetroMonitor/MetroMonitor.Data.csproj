@@ -69,10 +69,14 @@
     <Compile Include="ViewModels\Devices\DeviceEdit.cs" />
     <Compile Include="ViewModels\Devices\DeviceList.cs" />
     <Compile Include="ViewModels\Results\ResultsData.cs" />
+    <Compile Include="ViewModels\Statistics\GraphData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\Graphs\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

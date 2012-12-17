@@ -8,28 +8,24 @@ using System.Text;
 using MetroMonitor.Entities;
 using MetroMonitor.ViewModels.Devices;
 using MetroMonitor.ViewModels.Results;
-using MetroMonitor.WebService.DataMembers;
+using MetroMonitor.ViewModels.Statistics;
 
 namespace MetroMonitor.WebService
 {
     [ServiceContract]
-    public interface IDeviceContracts
+    public interface IGraphContract
     {
+        //TODO AND THIS PILE OF FUCK
         [OperationContract]
-        bool AddDevice(DeviceCreate device);
+        GraphDataContract MetricsOverveiwForDevice(int deviceId);
+
 
         [OperationContract]
-        bool DeleteDevice(int deviceId);
-       
-        [OperationContract]
-        bool EditDevice(DeviceEdit device);
-        
-        [OperationContract]
-        DeviceDataContract DeviceDetails(int DeviceId);
+        GraphDataContract GetResultsSet (int deviceId);
 
         [OperationContract]
-        DeviceDataContract LoadDeviceList();
+        int TestService();
     }
 
-    
+  
 }

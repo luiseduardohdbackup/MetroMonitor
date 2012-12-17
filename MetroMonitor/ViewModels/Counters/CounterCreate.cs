@@ -5,5 +5,6 @@ namespace MetroMonitor.ViewModels.Counters
         public int DeviceId { get; set; }
         public string DeviceName { get; set; }
         public CounterBase Metric { get; set; }
+        public int CounterDefinitifionId { get; set; }
     }
 }
