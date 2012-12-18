@@ -165,15 +165,43 @@ namespace MetroMonitor.WebService
         #region Graph Operations
 
         public GraphDataContract MetricsOverveiwForDevice(int deviceId){
-        
-            return new GraphDataContract{            
-                PlottingData = _dataRepresentationService.GetSystemOverviewGraph(deviceId)
+
+            var graph = _dataRepresentationService.GetSystemOverviewGraph(deviceId);
+
+            var gdc = new GraphDataContract()
+            {
+                PlottingData = new Dictionary<GraphCounterDataContract, List<ResultsDataContract>>()
             };
+
+            foreach (var key in graph.XYAxisData) { 
+            
+                var CounterKey = new GraphCounterDataContract{
+                CounterDescription = key.Key.Counter.Description,
+                InstanceName = string.Empty
+                };
+
+                var ResultsList = new List<ResultsDataContract>();
+
+                foreach(var result in key.Value){
+                    var ResultValue = new ResultsDataContract
+                    {
+                        AverageRead = result.AverageRead,
+                        LogDate = result.LogDate,
+                        MaximumRead = result.MaximumRead,
+                        MinimumRead = result.MinimumRead
+                    };
+                    ResultsList.Add(ResultValue);
+
+                }
+                gdc.PlottingData.Add(CounterKey, ResultsList);
+            }
+
+            return gdc;
         }
 
         public GraphDataContract GetResultsSet(int deviceId) {
-
-            return new GraphDataContract { resultSet = _dataRepresentationService.GetResultSet(deviceId) };
+            return null; 
+          //  return new GraphDataContract { resultSet = _dataRepresentationService.GetResultSet(deviceId) };
         }
 
         public int TestService() { return 1; }

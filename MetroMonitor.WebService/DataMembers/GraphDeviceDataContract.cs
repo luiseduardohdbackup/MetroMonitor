@@ -9,21 +9,14 @@ using MetroMonitor.Entities;
 using MetroMonitor.ViewModels.Devices;
 using MetroMonitor.ViewModels.Results;
 using MetroMonitor.ViewModels.Statistics;
-using MetroMonitor.WebService.DataMembers;
+using MetroMonitor.DataServices;
 
-namespace MetroMonitor.WebService
+namespace MetroMonitor.WebService.DataMembers
 {
     [DataContract]
-    public class GraphDataContract
+    public class GraphDeviceDataContract
     {
-        
-        public GraphDataContract() { }
-
         [DataMember]
-        public Dictionary<GraphCounterDataContract, List<ResultsDataContract>> PlottingData { get; set; }
-
-      
-
+        public string DeviceName { get; set; }
     }
-
 }

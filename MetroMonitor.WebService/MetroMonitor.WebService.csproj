@@ -65,6 +65,9 @@
   <ItemGroup>
     <Compile Include="DataMembers\CounterDataContract.cs" />
     <Compile Include="DataMembers\DeviceDataContract.cs" />
+    <Compile Include="DataMembers\GraphCounterDataContract.cs" />
+    <Compile Include="DataMembers\GraphDeviceDataContract.cs" />
+    <Compile Include="DataMembers\ResultsDataContract.cs" />
     <Compile Include="DataMembers\StatisticsDataContract.cs" />
     <Compile Include="DataRepository.svc.cs">
       <DependentUpon>DataRepository.svc</DependentUpon>
