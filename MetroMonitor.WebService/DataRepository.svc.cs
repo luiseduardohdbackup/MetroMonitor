@@ -116,6 +116,29 @@ namespace MetroMonitor.WebService
 
         #region Counter Operations
 
+
+        public CounterDataContract ComboBoxCounterData()
+        {
+
+            var counterData =  _dataAccessService.GetCounterList();
+            
+            var data = new List<CounterComboBox>();
+            foreach (var d in counterData) { 
+                data.Add(new CounterComboBox{
+                    Category = d.Category.Name,
+                    Counter = d.Counter.Name,
+                    InstanceName = d.InstanceName
+                });
+
+                
+            }
+            return new CounterDataContract
+            {
+                ComboBoxData = data
+            };
+        }
+
+        
         public bool AddMetric(CounterCreate counter)
         {
 
@@ -209,6 +232,12 @@ namespace MetroMonitor.WebService
            #endregion
 
         #region Statistics Operations
+
+        public IEnumerable<DeviceStatusResult> GetStatusesForAllDevices() {
+
+            return _statisticsProcessingService.GetSystemDeviceStatusList();
+
+        }
 
         public StatisticsDataContract GetCurrentStatus(int counterId) {
 

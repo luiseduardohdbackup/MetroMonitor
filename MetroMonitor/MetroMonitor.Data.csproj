@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\CounterInstancesForInterface.cs" />
     <Compile Include="Entities\DeviceCounterBase.cs" />
     <Compile Include="Entities\DevicePerformanceCounter.cs" />
     <Compile Include="Entities\PerformanceCategory.cs" />
@@ -68,7 +69,12 @@
     <Compile Include="ViewModels\Devices\DeviceDetails.cs" />
     <Compile Include="ViewModels\Devices\DeviceEdit.cs" />
     <Compile Include="ViewModels\Devices\DeviceList.cs" />
+    <Compile Include="ViewModels\Results\DeviceMetricStatusResult.cs" />
+    <Compile Include="ViewModels\Results\DeviceStatusResult.cs" />
+    <Compile Include="ViewModels\Results\MetricStatusResult.cs" />
+    <Compile Include="ViewModels\Results\MetricTimeFrameResult.cs" />
     <Compile Include="ViewModels\Results\ResultsData.cs" />
+    <Compile Include="ViewModels\Results\StatusData.cs" />
     <Compile Include="ViewModels\Statistics\GraphData.cs" />
   </ItemGroup>
   <ItemGroup>

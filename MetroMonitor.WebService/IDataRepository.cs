@@ -12,10 +12,10 @@ using MetroMonitor.ViewModels.Results;
 namespace MetroMonitor.WebService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
-    [ServiceContract]
-    public interface IDataRepository
-    {
-      
+     [ServiceContract]
+     public interface IDataRepository
+     {
+       
         [OperationContract]
         string GetData(int value);
 
@@ -29,10 +29,11 @@ namespace MetroMonitor.WebService
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
         // TODO: Add your service operations here
-    }
-
+     }
+ 
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
+
     [DataContract]
     public class CompositeType
     {

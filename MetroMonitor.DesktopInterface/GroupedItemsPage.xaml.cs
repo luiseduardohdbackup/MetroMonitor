@@ -13,6 +13,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using MetroMonitor.DesktopInterface.Views.Counters;
+using MetroMonitor.DesktopInterface.Views.Device;
 
 // The Grouped Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234231
 
@@ -26,6 +28,7 @@ namespace MetroMonitor.DesktopInterface
         public GroupedItemsPage()
         {
             this.InitializeComponent();
+          //  this.Frame.Navigate(typeof(AddCounterView), null);
         }
 
         /// <summary>
@@ -70,7 +73,14 @@ namespace MetroMonitor.DesktopInterface
             // Navigate to the appropriate destination page, configuring the new page
             // by passing required information as a navigation parameter
             var itemId = ((SampleDataItem)e.ClickedItem).UniqueId;
-            this.Frame.Navigate(typeof(ItemDetailPage), itemId);
+            this.Frame.Navigate(typeof(AddCountersView), null);
+           // this.Frame.Navigate(typeof(ItemDetailPage), itemId);
+        }
+
+        private void itemGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(DeviceAdd), null);
+
         }
     }
 }

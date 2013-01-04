@@ -35,8 +35,8 @@ namespace MetroMonitor.DataServices
         bool DeleteMetric(int id);
         bool AddNewMetric(CounterCreate metric);
         bool UpdateMetric(EditCounter model);
-     
 
+        IEnumerable<CounterInstancesForInterface> GetCounterList();
 
     }
 }

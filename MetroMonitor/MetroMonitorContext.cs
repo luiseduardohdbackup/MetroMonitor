@@ -16,9 +16,11 @@ namespace MetroMonitor
         public IDbSet<PerformanceCategory> PerformanceCategories { get; set; }
         public IDbSet<PerformanceCounter> PerformanceCounters { get; set; }
         public IDbSet<PerformanceCounterDefinition> PerformanceCounterDefinitions { get; set; }
-
+        public IDbSet<CounterInstancesForInterface> UICounterList { get; set; }
+        
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<CounterInstancesForInterface>().ToTable("CounterInstancesForInterface");
             modelBuilder.Entity<DeviceCounterBase>().ToTable("DeviceCounters");
             modelBuilder.Entity<DeviceCounterBase>().HasRequired(c => c.Device);
             modelBuilder.Entity<DevicePerformanceCounter>().ToTable("DevicePerformanceCounters");

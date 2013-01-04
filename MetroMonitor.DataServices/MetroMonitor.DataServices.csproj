@@ -52,6 +52,7 @@
     <Compile Include="DataRepresentationService.cs" />
     <Compile Include="Exceptions\InvalidDeviceNameException.cs" />
     <Compile Include="Exceptions\NonExisitentDeviceException.cs" />
+    <Compile Include="Exceptions\Status.cs" />
     <Compile Include="Extensions\DeviceCounterBaseExtensions.cs" />
     <Compile Include="IDataAccessService.cs" />
     <Compile Include="IDataRepresentationService.cs" />

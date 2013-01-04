@@ -12,6 +12,7 @@ namespace MetroMonitor
         IDbSet<PerformanceCategory> PerformanceCategories { get; set; }
         IDbSet<PerformanceCounter> PerformanceCounters { get; set; }
         IDbSet<PerformanceCounterDefinition> PerformanceCounterDefinitions { get; set; }
+        IDbSet<CounterInstancesForInterface> UICounterList { get; set; }
         int SaveChanges();
     }
 }

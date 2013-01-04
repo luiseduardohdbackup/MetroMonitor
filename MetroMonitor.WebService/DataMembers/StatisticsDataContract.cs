@@ -19,6 +19,6 @@ namespace MetroMonitor.WebService.DataMembers
         public StatisticsDataContract() { }
 
         [DataMember]
-        public Status status { get; set; }
+        public StatusData.Status status { get; set; }
     }
 }

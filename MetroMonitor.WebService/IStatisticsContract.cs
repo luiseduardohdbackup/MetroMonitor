@@ -19,8 +19,8 @@ namespace MetroMonitor.WebService
         [OperationContract]
         StatisticsDataContract GetCurrentStatus(int counterId);
 
-        //[OperationContract]
-        //IEnumerable<DeviceStatusResult> GetSystemDeviceStatusList();
+        [OperationContract]
+        IEnumerable<DeviceStatusResult> GetStatusesForAllDevices();
        
         //[OperationContract]
         //DeviceMetricStatusResult GetCounterSummaryStatus(int id);

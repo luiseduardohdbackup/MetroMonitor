@@ -24,6 +24,12 @@ namespace MetroMonitor.DataServices
             _context = context;
         }
 
+        public IEnumerable<CounterInstancesForInterface> GetCounterList()
+        {
+
+            return _context.UICounterList.ToList(); 
+        }
+
         public bool AddNewDevice(DeviceCreate model)
         {
             string deviceName = model.DeviceName;

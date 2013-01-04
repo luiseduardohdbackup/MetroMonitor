@@ -20,10 +20,28 @@ namespace MetroMonitor.WebService.DataMembers
         public CounterDataContract() { }
 
         [DataMember]
+        public IEnumerable<CounterComboBox> ComboBoxData { get; set; }
+        
+        [DataMember]
         public CounterDetails MetricDetails { get; set; }
 
         [DataMember]
         public IList<CounterDetails> MetricDetailsList { get; set; }
     }
 
+    [DataContract]
+    public class CounterComboBox {
+
+        [DataMember]
+        public string Counter { get; set; }
+
+        [DataMember]
+        public string Category { get; set; }
+
+        [DataMember]
+        public string InstanceName { get; set; }
+
+    }
+
+   
 }

@@ -101,8 +101,12 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCounterView.xaml.cs">
+      <DependentUpon>AddCounterView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -123,6 +127,27 @@
     <Compile Include="Common\LayoutAwarePage.cs" />
     <Compile Include="Common\RichTextColumns.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
+    <Compile Include="ProxyFactory.cs" />
+    <Compile Include="Service References\MetroMonitorWebRepository\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Counters\AddCountersView.xaml.cs">
+      <DependentUpon>AddCountersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Device\DeviceAdd.xaml.cs">
+      <DependentUpon>DeviceAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Device\DeviceEditView.xaml.cs">
+      <DependentUpon>DeviceEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Graph\GraphMetaDataView.xaml.cs">
+      <DependentUpon>GraphMetaDataView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Status\StatusOverview.xaml.cs">
+      <DependentUpon>StatusOverview.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -130,6 +155,35 @@
     </AppxManifest>
     <None Include="Common\ReadMe.txt" />
     <None Include="MetroMonitor.DesktopInterface_TemporaryKey.pfx" />
+    <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
+    <None Include="Service References\MetroMonitorWebRepository\DataRepository.wsdl" />
+    <None Include="Service References\MetroMonitorWebRepository\DataRepository.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetroMonitorWebRepository\DataRepository1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetroMonitorWebRepository\DataRepository3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetroMonitorWebRepository\DataRepository4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetroMonitorWebRepository\DataRepository5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetroMonitorWebRepository\DataRepository6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetroMonitorWebRepository\DataRepository7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetroMonitorWebRepository\DataRepository8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MetroMonitorWebRepository\DataRepository9.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Logo.png" />
@@ -139,12 +193,41 @@
     <Content Include="Assets\LightGray.png" />
     <Content Include="Assets\MediumGray.png" />
     <Content Include="Assets\DarkGray.png" />
+    <None Include="Service References\MetroMonitorWebRepository\MetroMonitor.DesktopInterface.MetroMonitorWebRepository.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MetroMonitorWebRepository\MetroMonitor.DesktopInterface.MetroMonitorWebRepository.CounterDataContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MetroMonitorWebRepository\MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceDataContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MetroMonitorWebRepository\MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceStatusResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MetroMonitorWebRepository\MetroMonitor.DesktopInterface.MetroMonitorWebRepository.GraphDataContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MetroMonitorWebRepository\MetroMonitor.DesktopInterface.MetroMonitorWebRepository.StatisticsDataContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MetroMonitorWebRepository\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\MetroMonitorWebRepository\configuration.svcinfo" />
+    <None Include="Service References\MetroMonitorWebRepository\configuration91.svcinfo" />
+    <None Include="Service References\MetroMonitorWebRepository\DataRepository.disco" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="AddCounterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Common\StandardStyles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -161,6 +244,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\Counters\AddCountersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Device\DeviceAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Device\DeviceEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Graph\GraphMetaDataView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Status\StatusOverview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\MetroMonitorWebRepository\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>

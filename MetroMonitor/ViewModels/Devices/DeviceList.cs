@@ -4,6 +4,6 @@ namespace MetroMonitor.ViewModels.Devices
 {
     public class DeviceList
     {
-        public IEnumerable<DeviceDetails> Devices { get; set; }
+        public IList<DeviceDetails> Devices { get; set; }
     }
 }

@@ -12,6 +12,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroMonitor.WebService", "MetroMonitor.WebService\MetroMonitor.WebService.csproj", "{E9FAE830-8EA3-4110-B4E0-0A15477BA571}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroMonitor.DesktopInterface", "MetroMonitor.DesktopInterface\MetroMonitor.DesktopInterface.csproj", "{0A742450-F3BC-40A5-9E2F-EB992DDB52A4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E9FAE830-8EA3-4110-B4E0-0A15477BA571} = {E9FAE830-8EA3-4110-B4E0-0A15477BA571}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

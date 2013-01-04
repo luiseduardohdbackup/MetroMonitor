@@ -8,6 +8,8 @@ using MetroMonitor.ViewModels.Results;
 using MetroMonitor.ViewModels.Counters;
 using MetroMonitor.DataServices.Extensions;
 using MetroMonitor.Entities;
+using System.Data.Objects;
+
 namespace MetroMonitor.DataServices
 {
     public class DataRepresentationService : IDataRepresentationService
@@ -46,9 +48,17 @@ namespace MetroMonitor.DataServices
                      ReadInterval = counter.ReadInterval
                  }
              };
+                 var stat = _context.Results
+                .Where(c => c.DeviceCounter.Id == counter.Id)
+                .Where(t => t.LogDate <= DateTime.Now && t.LogDate >= EntityFunctions.AddMinutes(DateTime.Now, -10))
+                .FirstOrDefault();
 
-                 var values = (from v in _context.Results where v.DeviceCounter.Id == counter.Id select v).ToList();
-                
+                 var values = _context.Results
+                     .Where(c => c.DeviceCounter.Id == counter.Id)
+                     .Where(t => t.LogDate <= DateTime.Now && t.LogDate >= EntityFunctions.AddMinutes(DateTime.Now, -10))
+                     .ToList();
+                     
+                   
                  AxisData.XYAxisData.Add(key, values);
 
 

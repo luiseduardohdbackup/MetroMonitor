@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService.DataMembers" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService.DataMembers" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Devices" />
+  <xs:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Counters" />
+  <xs:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Results" />
+  <xs:complexType name="DeviceDataContract">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Devices" minOccurs="0" name="deviceCreate" nillable="true" type="q1:DeviceCreate" />
+      <xs:element minOccurs="0" name="deviceDelete" type="xs:int" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Devices" minOccurs="0" name="deviceDetails" nillable="true" type="q2:DeviceDetails" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Devices" minOccurs="0" name="deviceEdit" nillable="true" type="q3:DeviceEdit" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Devices" minOccurs="0" name="devicelist" nillable="true" type="q4:DeviceList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviceDataContract" nillable="true" type="tns:DeviceDataContract" />
+  <xs:complexType name="CounterDataContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ComboBoxData" nillable="true" type="tns:ArrayOfCounterComboBox" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Counters" minOccurs="0" name="MetricDetails" nillable="true" type="q5:CounterDetails" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Counters" minOccurs="0" name="MetricDetailsList" nillable="true" type="q6:ArrayOfCounterDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CounterDataContract" nillable="true" type="tns:CounterDataContract" />
+  <xs:complexType name="ArrayOfCounterComboBox">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CounterComboBox" nillable="true" type="tns:CounterComboBox" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCounterComboBox" nillable="true" type="tns:ArrayOfCounterComboBox" />
+  <xs:complexType name="CounterComboBox">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Counter" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InstanceName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CounterComboBox" nillable="true" type="tns:CounterComboBox" />
+  <xs:complexType name="GraphCounterDataContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CounterDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InstanceName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GraphCounterDataContract" nillable="true" type="tns:GraphCounterDataContract" />
+  <xs:complexType name="ArrayOfResultsDataContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ResultsDataContract" nillable="true" type="tns:ResultsDataContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfResultsDataContract" nillable="true" type="tns:ArrayOfResultsDataContract" />
+  <xs:complexType name="ResultsDataContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AverageRead" type="xs:double" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Intervals" type="xs:int" />
+      <xs:element minOccurs="0" name="LogDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MaximumRead" type="xs:double" />
+      <xs:element minOccurs="0" name="MinimumRead" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResultsDataContract" nillable="true" type="tns:ResultsDataContract" />
+  <xs:complexType name="StatisticsDataContract">
+    <xs:sequence>
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Results" minOccurs="0" name="status" type="q7:StatusData.Status" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StatisticsDataContract" nillable="true" type="tns:StatisticsDataContract" />
+</xs:schema>

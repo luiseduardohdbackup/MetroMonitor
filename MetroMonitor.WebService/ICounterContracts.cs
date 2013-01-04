@@ -30,6 +30,9 @@ namespace MetroMonitor.WebService
 
         [OperationContract]
         CounterDataContract LoadMetricList(int deviceId);
+
+        [OperationContract]
+        CounterDataContract ComboBoxCounterData();
     }
 
    
