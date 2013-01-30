@@ -36,8 +36,15 @@
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>
-        <TextBlock x:Name="testarea1" HorizontalAlignment="Left" Margin="134,52,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="201" Width="358"/>
-        <ComboBox x:Name="CounterToAddDD" HorizontalAlignment="Left" Margin="134,106,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged_1"/>
+        <TextBlock x:Name="testarea1" HorizontalAlignment="Left" Margin="548,76,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="29" Width="222"/>
+        <ComboBox x:Name="CounterToAddDD" HorizontalAlignment="Left" Margin="1236,73,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged_1"/>
+        <ComboBox x:Name="DeviceNameDD" HorizontalAlignment="Left" Margin="10,73,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" SelectionChanged="DeviceNameDD_SelectionChanged"/>
+        
+        <ComboBox x:Name="ReadIntervalDD" HorizontalAlignment="Left" Margin="99,331,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Visibility="Collapsed" SelectionChanged="ReadIntervalDD_SelectionChanged"/>
+        <ComboBox x:Name="LogIntervalDD" HorizontalAlignment="Left" Margin="273,331,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Visibility="Collapsed" SelectionChanged="LogIntervalDD_SelectionChanged"/>
+        <ComboBox x:Name="MaxThresholdDD" HorizontalAlignment="Left" Margin="444,331,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Visibility="Collapsed" SelectionChanged="MaxThresholdDD_SelectionChanged"/>
+        <ComboBox x:Name="MinThresholdDD" HorizontalAlignment="Left" Margin="650,331,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" RenderTransformOrigin="4.6,1.125" Visibility="Collapsed" SelectionChanged="MinThresholdDD_SelectionChanged"/>
+        <Button x:Name="ConfirmationButton" Content="Button" HorizontalAlignment="Left" Margin="612,532,0,0" Grid.Row="1" VerticalAlignment="Top" Height="86" Width="158" RenderTransformOrigin="0.247,0.174" Click="ConfirmationButton_Click" Visibility="Collapsed"/>
 
         <VisualStateManager.VisualStateGroups>
 

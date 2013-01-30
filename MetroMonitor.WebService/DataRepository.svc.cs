@@ -32,6 +32,10 @@ namespace MetroMonitor.WebService
         }
 
 
+        public Dictionary<int, string> GetAvailableDevices() {
+
+            return _dataAccessService.GetAvailableDevice();
+        }
 
         public string GetData(int value)
         {
@@ -76,7 +80,7 @@ namespace MetroMonitor.WebService
 
         #region Device Operations
 
-        public bool AddDevice(DeviceCreate device)
+        public bool AddDevice(string device)
         {
             return _dataAccessService.AddNewDevice(device);
         }
@@ -87,10 +91,10 @@ namespace MetroMonitor.WebService
             return _dataAccessService.DeleteDevice(deviceId);
         }
 
-        public bool EditDevice(DeviceEdit device)
+        public bool EditDevice(string deviceName, int Id)
         {
 
-            return _dataAccessService.EditDevice(device);
+            return _dataAccessService.EditDevice(deviceName, Id);
         }
 
         public DeviceDataContract DeviceDetails(int DeviceId)
@@ -116,6 +120,19 @@ namespace MetroMonitor.WebService
 
         #region Counter Operations
 
+        public MetricDetailsData GetMetricDetails(int counterId, int deviceId) {
+
+            var data = _dataAccessService.GetMetricDetails(deviceId, counterId);
+            return new MetricDetailsData
+            {
+                MetricDetails = data
+            };
+        }
+
+        public Dictionary<int, string> LoadAvailableCounters() {
+
+            return _dataAccessService.GetAvaialbeCounters();
+        }
 
         public CounterDataContract ComboBoxCounterData()
         {
@@ -161,10 +178,15 @@ namespace MetroMonitor.WebService
             return _dataAccessService.UpdateMetric(counter);
         }
 
+        public Dictionary<int, string> GetAvailableCountersForDevice(int deviceId) {
+
+        return _dataAccessService.GetCountersForDevice(deviceId);
+        
+
+        }
 
         public CounterDataContract MetricDetails(int deviceId, int counterId)
         {
-
             return new CounterDataContract
             {
                 MetricDetails = _dataAccessService.GetMetricDetails(deviceId, counterId)

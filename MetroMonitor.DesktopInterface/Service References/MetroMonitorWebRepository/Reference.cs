@@ -422,12 +422,162 @@ namespace MetroMonitor.DesktopInterface.MetroMonitorWebRepository {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DeviceDataContract", Namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService.DataMembers")]
+    public partial class DeviceDataContract : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceCreate deviceCreateField;
+        
+        private int deviceDeleteField;
+        
+        private MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceDetails deviceDetailsField;
+        
+        private MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceEdit deviceEditField;
+        
+        private MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceList devicelistField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceCreate deviceCreate {
+            get {
+                return this.deviceCreateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.deviceCreateField, value) != true)) {
+                    this.deviceCreateField = value;
+                    this.RaisePropertyChanged("deviceCreate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int deviceDelete {
+            get {
+                return this.deviceDeleteField;
+            }
+            set {
+                if ((this.deviceDeleteField.Equals(value) != true)) {
+                    this.deviceDeleteField = value;
+                    this.RaisePropertyChanged("deviceDelete");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceDetails deviceDetails {
+            get {
+                return this.deviceDetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.deviceDetailsField, value) != true)) {
+                    this.deviceDetailsField = value;
+                    this.RaisePropertyChanged("deviceDetails");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceEdit deviceEdit {
+            get {
+                return this.deviceEditField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.deviceEditField, value) != true)) {
+                    this.deviceEditField = value;
+                    this.RaisePropertyChanged("deviceEdit");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceList devicelist {
+            get {
+                return this.devicelistField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.devicelistField, value) != true)) {
+                    this.devicelistField = value;
+                    this.RaisePropertyChanged("devicelist");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DeviceCreate", Namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Devices")]
     public partial class DeviceCreate : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string DeviceNameField;
         
         private int IdField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DeviceName {
+            get {
+                return this.DeviceNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DeviceNameField, value) != true)) {
+                    this.DeviceNameField = value;
+                    this.RaisePropertyChanged("DeviceName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DeviceDetails", Namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Devices")]
+    public partial class DeviceDetails : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string DescriptionField;
+        
+        private string DeviceNameField;
+        
+        private int IdField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string DeviceName {
@@ -527,6 +677,36 @@ namespace MetroMonitor.DesktopInterface.MetroMonitorWebRepository {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DeviceList", Namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Devices")]
+    public partial class DeviceList : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private System.Collections.ObjectModel.ObservableCollection<MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceDetails> DevicesField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceDetails> Devices {
+            get {
+                return this.DevicesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DevicesField, value) != true)) {
+                    this.DevicesField = value;
+                    this.RaisePropertyChanged("Devices");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DeviceCounterSummary", Namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Devices")]
     public partial class DeviceCounterSummary : object, System.ComponentModel.INotifyPropertyChanged {
         
@@ -556,186 +736,6 @@ namespace MetroMonitor.DesktopInterface.MetroMonitorWebRepository {
                 if ((this.IdField.Equals(value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DeviceDataContract", Namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService.DataMembers")]
-    public partial class DeviceDataContract : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceCreate deviceCreateField;
-        
-        private int deviceDeleteField;
-        
-        private MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceDetails deviceDetailsField;
-        
-        private MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceEdit deviceEditField;
-        
-        private MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceList devicelistField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceCreate deviceCreate {
-            get {
-                return this.deviceCreateField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.deviceCreateField, value) != true)) {
-                    this.deviceCreateField = value;
-                    this.RaisePropertyChanged("deviceCreate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int deviceDelete {
-            get {
-                return this.deviceDeleteField;
-            }
-            set {
-                if ((this.deviceDeleteField.Equals(value) != true)) {
-                    this.deviceDeleteField = value;
-                    this.RaisePropertyChanged("deviceDelete");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceDetails deviceDetails {
-            get {
-                return this.deviceDetailsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.deviceDetailsField, value) != true)) {
-                    this.deviceDetailsField = value;
-                    this.RaisePropertyChanged("deviceDetails");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceEdit deviceEdit {
-            get {
-                return this.deviceEditField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.deviceEditField, value) != true)) {
-                    this.deviceEditField = value;
-                    this.RaisePropertyChanged("deviceEdit");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceList devicelist {
-            get {
-                return this.devicelistField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.devicelistField, value) != true)) {
-                    this.devicelistField = value;
-                    this.RaisePropertyChanged("devicelist");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DeviceDetails", Namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Devices")]
-    public partial class DeviceDetails : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string DescriptionField;
-        
-        private string DeviceNameField;
-        
-        private int IdField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
-            get {
-                return this.DescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DeviceName {
-            get {
-                return this.DeviceNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DeviceNameField, value) != true)) {
-                    this.DeviceNameField = value;
-                    this.RaisePropertyChanged("DeviceName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DeviceList", Namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Devices")]
-    public partial class DeviceList : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private System.Collections.ObjectModel.ObservableCollection<MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceDetails> DevicesField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceDetails> Devices {
-            get {
-                return this.DevicesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DevicesField, value) != true)) {
-                    this.DevicesField = value;
-                    this.RaisePropertyChanged("Devices");
                 }
             }
         }
@@ -1157,6 +1157,36 @@ namespace MetroMonitor.DesktopInterface.MetroMonitorWebRepository {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MetricDetailsData", Namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService.DataMembers")]
+    public partial class MetricDetailsData : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private MetroMonitor.DesktopInterface.MetroMonitorWebRepository.CounterDetails MetricDetailsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MetroMonitor.DesktopInterface.MetroMonitorWebRepository.CounterDetails MetricDetails {
+            get {
+                return this.MetricDetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MetricDetailsField, value) != true)) {
+                    this.MetricDetailsField = value;
+                    this.RaisePropertyChanged("MetricDetails");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GraphDataContract", Namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService")]
     public partial class GraphDataContract : object, System.ComponentModel.INotifyPropertyChanged {
         
@@ -1446,6 +1476,12 @@ namespace MetroMonitor.DesktopInterface.MetroMonitorWebRepository {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataRepository/GetData", ReplyAction="http://tempuri.org/IDataRepository/GetDataResponse")]
         System.Threading.Tasks.Task<string> GetDataAsync(int value);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataRepository/GetAvailableDevices", ReplyAction="http://tempuri.org/IDataRepository/GetAvailableDevicesResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<int, string>> GetAvailableDevicesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataRepository/GetAvailableCountersForDevice", ReplyAction="http://tempuri.org/IDataRepository/GetAvailableCountersForDeviceResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<int, string>> GetAvailableCountersForDeviceAsync(int deviceId);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataRepository/GetResult", ReplyAction="http://tempuri.org/IDataRepository/GetResultResponse")]
         System.Threading.Tasks.Task<MetroMonitor.DesktopInterface.MetroMonitorWebRepository.CompositeType> GetResultAsync();
         
@@ -1501,6 +1537,14 @@ namespace MetroMonitor.DesktopInterface.MetroMonitorWebRepository {
         
         public System.Threading.Tasks.Task<string> GetDataAsync(int value) {
             return base.Channel.GetDataAsync(value);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<int, string>> GetAvailableDevicesAsync() {
+            return base.Channel.GetAvailableDevicesAsync();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<int, string>> GetAvailableCountersForDeviceAsync(int deviceId) {
+            return base.Channel.GetAvailableCountersForDeviceAsync(deviceId);
         }
         
         public System.Threading.Tasks.Task<MetroMonitor.DesktopInterface.MetroMonitorWebRepository.CompositeType> GetResultAsync() {
@@ -1561,13 +1605,13 @@ namespace MetroMonitor.DesktopInterface.MetroMonitorWebRepository {
     public interface IDeviceContracts {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeviceContracts/AddDevice", ReplyAction="http://tempuri.org/IDeviceContracts/AddDeviceResponse")]
-        System.Threading.Tasks.Task<bool> AddDeviceAsync(MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceCreate device);
+        System.Threading.Tasks.Task<bool> AddDeviceAsync(string device);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeviceContracts/DeleteDevice", ReplyAction="http://tempuri.org/IDeviceContracts/DeleteDeviceResponse")]
         System.Threading.Tasks.Task<bool> DeleteDeviceAsync(int deviceId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeviceContracts/EditDevice", ReplyAction="http://tempuri.org/IDeviceContracts/EditDeviceResponse")]
-        System.Threading.Tasks.Task<bool> EditDeviceAsync(MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceEdit device);
+        System.Threading.Tasks.Task<bool> EditDeviceAsync(string deviceName, int Id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDeviceContracts/DeviceDetails", ReplyAction="http://tempuri.org/IDeviceContracts/DeviceDetailsResponse")]
         System.Threading.Tasks.Task<MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceDataContract> DeviceDetailsAsync(int DeviceId);
@@ -1619,7 +1663,7 @@ namespace MetroMonitor.DesktopInterface.MetroMonitorWebRepository {
                 base(binding, remoteAddress) {
         }
         
-        public System.Threading.Tasks.Task<bool> AddDeviceAsync(MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceCreate device) {
+        public System.Threading.Tasks.Task<bool> AddDeviceAsync(string device) {
             return base.Channel.AddDeviceAsync(device);
         }
         
@@ -1627,8 +1671,8 @@ namespace MetroMonitor.DesktopInterface.MetroMonitorWebRepository {
             return base.Channel.DeleteDeviceAsync(deviceId);
         }
         
-        public System.Threading.Tasks.Task<bool> EditDeviceAsync(MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceEdit device) {
-            return base.Channel.EditDeviceAsync(device);
+        public System.Threading.Tasks.Task<bool> EditDeviceAsync(string deviceName, int Id) {
+            return base.Channel.EditDeviceAsync(deviceName, Id);
         }
         
         public System.Threading.Tasks.Task<MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceDataContract> DeviceDetailsAsync(int DeviceId) {
@@ -1693,8 +1737,14 @@ namespace MetroMonitor.DesktopInterface.MetroMonitorWebRepository {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICounterContracts/EditMetric", ReplyAction="http://tempuri.org/ICounterContracts/EditMetricResponse")]
         System.Threading.Tasks.Task<bool> EditMetricAsync(MetroMonitor.DesktopInterface.MetroMonitorWebRepository.EditCounter counter);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICounterContracts/LoadAvailableCounters", ReplyAction="http://tempuri.org/ICounterContracts/LoadAvailableCountersResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<int, string>> LoadAvailableCountersAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICounterContracts/MetricDetails", ReplyAction="http://tempuri.org/ICounterContracts/MetricDetailsResponse")]
         System.Threading.Tasks.Task<MetroMonitor.DesktopInterface.MetroMonitorWebRepository.CounterDataContract> MetricDetailsAsync(int counterId, int deviceId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICounterContracts/GetMetricDetails", ReplyAction="http://tempuri.org/ICounterContracts/GetMetricDetailsResponse")]
+        System.Threading.Tasks.Task<MetroMonitor.DesktopInterface.MetroMonitorWebRepository.MetricDetailsData> GetMetricDetailsAsync(int counterId, int deviceId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICounterContracts/LoadMetricList", ReplyAction="http://tempuri.org/ICounterContracts/LoadMetricListResponse")]
         System.Threading.Tasks.Task<MetroMonitor.DesktopInterface.MetroMonitorWebRepository.CounterDataContract> LoadMetricListAsync(int deviceId);
@@ -1758,8 +1808,16 @@ namespace MetroMonitor.DesktopInterface.MetroMonitorWebRepository {
             return base.Channel.EditMetricAsync(counter);
         }
         
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<int, string>> LoadAvailableCountersAsync() {
+            return base.Channel.LoadAvailableCountersAsync();
+        }
+        
         public System.Threading.Tasks.Task<MetroMonitor.DesktopInterface.MetroMonitorWebRepository.CounterDataContract> MetricDetailsAsync(int counterId, int deviceId) {
             return base.Channel.MetricDetailsAsync(counterId, deviceId);
+        }
+        
+        public System.Threading.Tasks.Task<MetroMonitor.DesktopInterface.MetroMonitorWebRepository.MetricDetailsData> GetMetricDetailsAsync(int counterId, int deviceId) {
+            return base.Channel.GetMetricDetailsAsync(counterId, deviceId);
         }
         
         public System.Threading.Tasks.Task<MetroMonitor.DesktopInterface.MetroMonitorWebRepository.CounterDataContract> LoadMetricListAsync(int deviceId) {

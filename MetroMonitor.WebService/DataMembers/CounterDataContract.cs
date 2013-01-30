@@ -25,8 +25,19 @@ namespace MetroMonitor.WebService.DataMembers
         [DataMember]
         public CounterDetails MetricDetails { get; set; }
 
+
         [DataMember]
         public IList<CounterDetails> MetricDetailsList { get; set; }
+    }
+
+
+    [DataContract]
+    public class MetricDetailsData
+    {
+        public MetricDetailsData() { }
+
+        [DataMember]
+        public CounterDetails MetricDetails { get; set; }
     }
 
     [DataContract]

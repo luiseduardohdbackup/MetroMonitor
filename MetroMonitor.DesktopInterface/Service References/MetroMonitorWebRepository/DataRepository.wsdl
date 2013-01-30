@@ -4,13 +4,13 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService" />
-      <xsd:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Results" />
-      <xsd:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.Entities" />
-      <xsd:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Devices" />
+      <xsd:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService" />
+      <xsd:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Results" />
+      <xsd:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.Entities" />
       <xsd:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService.DataMembers" />
-      <xsd:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Counters" />
-      <xsd:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd8" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Devices" />
+      <xsd:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Counters" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IDataRepository_GetData_InputMessage">
@@ -18,6 +18,18 @@
   </wsdl:message>
   <wsdl:message name="IDataRepository_GetData_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataRepository_GetAvailableDevices_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableDevices" />
+  </wsdl:message>
+  <wsdl:message name="IDataRepository_GetAvailableDevices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableDevicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataRepository_GetAvailableCountersForDevice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableCountersForDevice" />
+  </wsdl:message>
+  <wsdl:message name="IDataRepository_GetAvailableCountersForDevice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableCountersForDeviceResponse" />
   </wsdl:message>
   <wsdl:message name="IDataRepository_GetResult_InputMessage">
     <wsdl:part name="parameters" element="tns:GetResult" />
@@ -85,11 +97,23 @@
   <wsdl:message name="ICounterContracts_EditMetric_OutputMessage">
     <wsdl:part name="parameters" element="tns:EditMetricResponse" />
   </wsdl:message>
+  <wsdl:message name="ICounterContracts_LoadAvailableCounters_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAvailableCounters" />
+  </wsdl:message>
+  <wsdl:message name="ICounterContracts_LoadAvailableCounters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAvailableCountersResponse" />
+  </wsdl:message>
   <wsdl:message name="ICounterContracts_MetricDetails_InputMessage">
     <wsdl:part name="parameters" element="tns:MetricDetails" />
   </wsdl:message>
   <wsdl:message name="ICounterContracts_MetricDetails_OutputMessage">
     <wsdl:part name="parameters" element="tns:MetricDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICounterContracts_GetMetricDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMetricDetails" />
+  </wsdl:message>
+  <wsdl:message name="ICounterContracts_GetMetricDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMetricDetailsResponse" />
   </wsdl:message>
   <wsdl:message name="ICounterContracts_LoadMetricList_InputMessage">
     <wsdl:part name="parameters" element="tns:LoadMetricList" />
@@ -137,6 +161,14 @@
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IDataRepository/GetData" message="tns:IDataRepository_GetData_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDataRepository/GetDataResponse" message="tns:IDataRepository_GetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableDevices">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataRepository/GetAvailableDevices" message="tns:IDataRepository_GetAvailableDevices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataRepository/GetAvailableDevicesResponse" message="tns:IDataRepository_GetAvailableDevices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableCountersForDevice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataRepository/GetAvailableCountersForDevice" message="tns:IDataRepository_GetAvailableCountersForDevice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataRepository/GetAvailableCountersForDeviceResponse" message="tns:IDataRepository_GetAvailableCountersForDevice_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetResult">
       <wsdl:input wsaw:Action="http://tempuri.org/IDataRepository/GetResult" message="tns:IDataRepository_GetResult_InputMessage" />
@@ -186,9 +218,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ICounterContracts/EditMetric" message="tns:ICounterContracts_EditMetric_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICounterContracts/EditMetricResponse" message="tns:ICounterContracts_EditMetric_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="LoadAvailableCounters">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICounterContracts/LoadAvailableCounters" message="tns:ICounterContracts_LoadAvailableCounters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICounterContracts/LoadAvailableCountersResponse" message="tns:ICounterContracts_LoadAvailableCounters_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="MetricDetails">
       <wsdl:input wsaw:Action="http://tempuri.org/ICounterContracts/MetricDetails" message="tns:ICounterContracts_MetricDetails_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICounterContracts/MetricDetailsResponse" message="tns:ICounterContracts_MetricDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMetricDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICounterContracts/GetMetricDetails" message="tns:ICounterContracts_GetMetricDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICounterContracts/GetMetricDetailsResponse" message="tns:ICounterContracts_GetMetricDetails_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="LoadMetricList">
       <wsdl:input wsaw:Action="http://tempuri.org/ICounterContracts/LoadMetricList" message="tns:ICounterContracts_LoadMetricList_InputMessage" />
@@ -227,6 +267,24 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetData">
       <soap:operation soapAction="http://tempuri.org/IDataRepository/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableDevices">
+      <soap:operation soapAction="http://tempuri.org/IDataRepository/GetAvailableDevices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableCountersForDevice">
+      <soap:operation soapAction="http://tempuri.org/IDataRepository/GetAvailableCountersForDevice" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -339,8 +397,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="LoadAvailableCounters">
+      <soap:operation soapAction="http://tempuri.org/ICounterContracts/LoadAvailableCounters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="MetricDetails">
       <soap:operation soapAction="http://tempuri.org/ICounterContracts/MetricDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMetricDetails">
+      <soap:operation soapAction="http://tempuri.org/ICounterContracts/GetMetricDetails" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

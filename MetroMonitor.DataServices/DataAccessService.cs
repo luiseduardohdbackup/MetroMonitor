@@ -30,14 +30,50 @@ namespace MetroMonitor.DataServices
             return _context.UICounterList.ToList(); 
         }
 
-        public bool AddNewDevice(DeviceCreate model)
+        public Dictionary<int, string> GetAvaialbeCounters() {
+
+            var c = (from dc in _context.PerformanceCounterDefinitions select dc).ToList();
+            var counterList = new Dictionary<int, string>();
+            foreach (var r in c) {
+
+                counterList.Add(r.Id, r.Category.Name.ToString() + " " + r.Counter.Name.ToString());
+            }
+            return counterList;
+
+        }
+
+        public Dictionary<int, string> GetCountersForDevice(int deviceId) { 
+        
+            var counters = (from c in _context.DeviceCounters where c.Device.Id == deviceId select c).ToList();
+            var returnData = new Dictionary<int, string>();
+            foreach (var data in counters) {
+                returnData.Add(data.Id, data.GetDescription().ToString());
+            }
+            return returnData;
+        }
+
+        public bool AddNewDevice(string deviceName)
         {
-            string deviceName = model.DeviceName;
+           ;
           //  if (!PingService.IsValidDeviceName(deviceName)) throw new InvalidDeviceNameException(deviceName);
          
-            _context.Devices.Add(new Device {Name = model.DeviceName, Deleted = 0});
+            _context.Devices.Add(new Device {Name = deviceName, Deleted = 0});
             _context.SaveChanges();
             return true;
+        }
+
+        public Dictionary<int, string> GetAvailableDevice() {
+
+            var deviceList = (from d in _context.Devices select d).ToList();
+
+            var resultDictionary = new Dictionary<int, string>();
+
+            foreach (var result in deviceList) {
+
+                resultDictionary.Add(result.Id, result.Name.ToString());
+            }
+
+            return resultDictionary;
         }
         
         public bool DeleteDevice(int id)
@@ -50,8 +86,16 @@ namespace MetroMonitor.DataServices
             return true;
         }
 
-        public bool EditDevice(DeviceEdit device) {
-            return true; 
+        public bool EditDevice(string deviceName, int Id)
+        {
+            var d = (from device in _context.Devices where device.Id == Id select device).FirstOrDefault();
+            if (d != null)
+            {
+                d.Name = deviceName;
+                _context.SaveChanges();
+                return true;
+            }
+            return false;
         }
 
         public DeviceList LoadDeviceList()
@@ -212,15 +256,17 @@ namespace MetroMonitor.DataServices
             //_context.DeviceCounters.Add(mapped);
             //_context.SaveChanges();
 
-            var metric = (PerformanceCounterMetric)model.Metric;
+           // var metric = (PerformanceCounterMetric)model.Metric;
+
+         
 
                 var definition =
-                    _context.PerformanceCounterDefinitions.FirstOrDefault(d => d.Id == metric.CounterDefinitionId);
+                    _context.PerformanceCounterDefinitions.FirstOrDefault(d => d.Id == model.CounterDefinitifionId);
 
-                if (metric.InstanceName == null)
-                {
-                    metric.InstanceName = string.Empty;
-                }
+                //if (definition.InstanceName == null)
+                //{
+                //    metric.InstanceName = string.Empty;
+                //}
 
                 DeviceCounterBase counter = new DevicePerformanceCounter
                                                 {
@@ -230,7 +276,7 @@ namespace MetroMonitor.DataServices
                                                     MaxThreshold = model.Metric.MaxThreshold,
                                                     MinThreshold = model.Metric.MinThreshold,
                                                     CounterDefinition = definition,
-                                                    InstanceName = metric.InstanceName,
+                                                    InstanceName = "",
                                                     Deleted = 0
                                                 };
 

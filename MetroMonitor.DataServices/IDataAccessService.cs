@@ -14,13 +14,15 @@ namespace MetroMonitor.DataServices
     public interface IDataAccessService
     {
         //Device Operation Method Contracts
-        bool AddNewDevice(DeviceCreate model);
+        bool AddNewDevice(string deviceName);
         bool DeleteDevice(int id);
-        bool EditDevice(DeviceEdit device);
+        bool EditDevice(string deviceName, int Id);
         DeviceList LoadDeviceList();
         DeviceEdit GetDeviceEdit(int id);
+        Dictionary<int, string> GetAvaialbeCounters();
         DeviceDetails GetDeviceDetails(int id);
-
+        Dictionary<int, string> GetAvailableDevice();
+        Dictionary<int, string> GetCountersForDevice(int deviceId);
       
         //Generic Data Operations
         ResultsData GetResults();

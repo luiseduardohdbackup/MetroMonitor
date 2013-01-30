@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService.DataMembers" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService.DataMembers" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Devices" />
-  <xs:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Counters" />
-  <xs:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Results" />
+  <xs:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Devices" />
+  <xs:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Counters" />
+  <xs:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Results" />
   <xs:complexType name="DeviceDataContract">
     <xs:sequence>
       <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Devices" minOccurs="0" name="deviceCreate" nillable="true" type="q1:DeviceCreate" />
@@ -35,6 +35,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CounterComboBox" nillable="true" type="tns:CounterComboBox" />
+  <xs:complexType name="MetricDetailsData">
+    <xs:sequence>
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Counters" minOccurs="0" name="MetricDetails" nillable="true" type="q7:CounterDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MetricDetailsData" nillable="true" type="tns:MetricDetailsData" />
   <xs:complexType name="GraphCounterDataContract">
     <xs:sequence>
       <xs:element minOccurs="0" name="CounterDescription" nillable="true" type="xs:string" />
@@ -61,7 +67,7 @@
   <xs:element name="ResultsDataContract" nillable="true" type="tns:ResultsDataContract" />
   <xs:complexType name="StatisticsDataContract">
     <xs:sequence>
-      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Results" minOccurs="0" name="status" type="q7:StatusData.Status" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Results" minOccurs="0" name="status" type="q8:StatusData.Status" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="StatisticsDataContract" nillable="true" type="tns:StatisticsDataContract" />

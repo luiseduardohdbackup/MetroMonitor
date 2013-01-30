@@ -59,7 +59,7 @@ namespace MetroMonitor.DesktopInterface
 
             // Navigate to the appropriate destination page, configuring the new page
             // by passing required information as a navigation parameter
-            this.Frame.Navigate(typeof(GroupDetailPage), ((SampleDataGroup)group).UniqueId);
+            this.Frame.Navigate(typeof(ManageDevice), ((SampleDataGroup)group).UniqueId);
         }
 
         /// <summary>
@@ -73,13 +73,13 @@ namespace MetroMonitor.DesktopInterface
             // Navigate to the appropriate destination page, configuring the new page
             // by passing required information as a navigation parameter
             var itemId = ((SampleDataItem)e.ClickedItem).UniqueId;
-            this.Frame.Navigate(typeof(AddCountersView), null);
+            this.Frame.Navigate(typeof(ManageDevice), null);
            // this.Frame.Navigate(typeof(ItemDetailPage), itemId);
         }
 
         private void itemGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            this.Frame.Navigate(typeof(DeviceAdd), null);
+            this.Frame.Navigate(typeof(ManageDevice), null);
 
         }
     }

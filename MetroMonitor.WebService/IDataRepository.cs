@@ -20,6 +20,12 @@ namespace MetroMonitor.WebService
         string GetData(int value);
 
         [OperationContract]
+        Dictionary<int, string> GetAvailableDevices();
+
+        [OperationContract]
+        Dictionary<int, string> GetAvailableCountersForDevice(int deviceId);
+
+        [OperationContract]
         CompositeType GetResult();
 
         [OperationContract]

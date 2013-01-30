@@ -16,13 +16,13 @@ namespace MetroMonitor.WebService
     public interface IDeviceContracts
     {
         [OperationContract]
-        bool AddDevice(DeviceCreate device);
+        bool AddDevice(string device);
 
         [OperationContract]
         bool DeleteDevice(int deviceId);
        
         [OperationContract]
-        bool EditDevice(DeviceEdit device);
+        bool EditDevice(string deviceName, int Id);
         
         [OperationContract]
         DeviceDataContract DeviceDetails(int DeviceId);

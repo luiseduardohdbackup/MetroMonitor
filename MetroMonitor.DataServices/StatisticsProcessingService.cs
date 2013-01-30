@@ -211,7 +211,7 @@ namespace MetroMonitor.DataServices
         public StatusData.Status GetCurrentStatus(int counterId) {
 
             var status = _context.Results
-                .FirstOrDefault(c => c.DeviceCounter.Id == counterId);
+                                .FirstOrDefault(c => c.DeviceCounter.Id == counterId);
              
 
             if (status.AverageRead >= status.DeviceCounter.MaxThreshold) return StatusData.Status.Red;

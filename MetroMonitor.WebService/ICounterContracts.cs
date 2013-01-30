@@ -26,7 +26,13 @@ namespace MetroMonitor.WebService
         bool EditMetric(EditCounter counter);
 
         [OperationContract]
+        Dictionary<int, string> LoadAvailableCounters();
+
+        [OperationContract]
         CounterDataContract MetricDetails(int counterId, int deviceId);
+
+        [OperationContract]
+        MetricDetailsData GetMetricDetails(int counterId, int deviceId);
 
         [OperationContract]
         CounterDataContract LoadMetricList(int deviceId);

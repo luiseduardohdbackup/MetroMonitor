@@ -1,0 +1,20 @@
+﻿<Page
+    x:Class="MetroMonitor.DesktopInterface.EditCounterView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MetroMonitor.DesktopInterface"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <ComboBox x:Name="DeviceListDD" HorizontalAlignment="Left" Margin="190,158,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="DeviceListDD_SelectionChanged"/>
+        <ComboBox x:Name="DeviceCountersDD" HorizontalAlignment="Left" Margin="855,175,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="DeviceCountersDD_SelectionChanged" Visibility="Collapsed"/>
+        <TextBox x:Name="ReadInterTB" HorizontalAlignment="Left" Margin="206,332,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Visibility="Collapsed"/>
+        <TextBox x:Name="LogInterTB" HorizontalAlignment="Left" Margin="315,332,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Visibility="Collapsed"/>
+        <TextBox x:Name="MaxThresTB" HorizontalAlignment="Left" Margin="431,332,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Visibility="Collapsed"/>
+        <TextBox x:Name="MinThresTB" HorizontalAlignment="Left" Margin="539,332,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Visibility="Collapsed"/>
+        <Button x:Name="ConfirmBtn" Content="Confirm" HorizontalAlignment="Left" Margin="459,596,0,0" VerticalAlignment="Top" Click="ConfirmBtn_Click" Visibility="Collapsed"/>
+
+    </Grid>
+</Page>

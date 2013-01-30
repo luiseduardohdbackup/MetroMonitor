@@ -30,6 +30,7 @@
         {
             this.serviceProcessInstaller = new System.ServiceProcess.ServiceProcessInstaller();
             this.serviceInstaller = new System.ServiceProcess.ServiceInstaller();
+            this.serviceInstaller1 = new System.ServiceProcess.ServiceInstaller();
             // 
             // serviceProcessInstaller
             // 
@@ -44,11 +45,17 @@
             this.serviceInstaller.ServiceName = "MetroMonitorService";
             this.serviceInstaller.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
             // 
+            // serviceInstaller1
+            // 
+            this.serviceInstaller1.ServiceName = "MetroMonitor.MonitoringService";
+            this.serviceInstaller1.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
+            // 
             // ProjectInstaller
             // 
             this.Installers.AddRange(new System.Configuration.Install.Installer[] {
             this.serviceProcessInstaller,
-            this.serviceInstaller});
+            this.serviceInstaller,
+            this.serviceInstaller1});
 
         }
 
@@ -56,5 +63,6 @@
 
         private System.ServiceProcess.ServiceProcessInstaller serviceProcessInstaller;
         private System.ServiceProcess.ServiceInstaller serviceInstaller;
+        private System.ServiceProcess.ServiceInstaller serviceInstaller1;
     }
 }

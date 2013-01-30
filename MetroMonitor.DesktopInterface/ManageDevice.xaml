@@ -1,0 +1,19 @@
+﻿<Page
+    x:Class="MetroMonitor.DesktopInterface.ManageDevice"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MetroMonitor.DesktopInterface"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <ComboBox x:Name="DeviceListDD" HorizontalAlignment="Left" Margin="175,172,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="DeviceListDD_SelectionChanged"/>
+        <Button x:Name="AddDeviceBtn" Content="Add New Device +" HorizontalAlignment="Left" Margin="661,169,0,0" VerticalAlignment="Top" Click="AddDeviceBtn_Click"/>
+        <TextBox x:Name="DeviceNameTB" HorizontalAlignment="Left" Margin="175,313,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Visibility="Collapsed"/>
+        <Button x:Name="DeviceDeleteBtn" Content="Delete" HorizontalAlignment="Left" Margin="590,313,0,0" VerticalAlignment="Top" Visibility="Collapsed"/>
+        <TextBox x:Name="AddDeviceTB" HorizontalAlignment="Left" Margin="573,313,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Visibility="Collapsed"/>
+        <Button x:Name="AddBtn" Content="Add" HorizontalAlignment="Left" Margin="706,313,0,0" VerticalAlignment="Top" Visibility="Collapsed" Click="AddBtn_Click"/>
+
+    </Grid>
+</Page>
