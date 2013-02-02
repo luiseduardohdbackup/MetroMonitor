@@ -26,6 +26,16 @@ namespace MetroMonitor.DataServices
             _context = context;
         }
 
+        //public IEnumerable<DeviceMetricStatusResult> GetStatusForAllMetricsForDevice(int deviceId) {
+        //    var device = (from d in _context.DeviceCounters where d.Device.Id == deviceId select d).ToList();
+        //    var counterStatuses = new List<DeviceMetricStatusResult>();
+
+        //    foreach (var data in device) {
+                
+
+        //    }
+        
+        //}
         public DeviceMetricStatusResult GetCounterSummaryStatus(int id)
         {
 

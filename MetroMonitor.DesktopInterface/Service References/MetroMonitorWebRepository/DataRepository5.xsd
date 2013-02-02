@@ -34,4 +34,52 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DeviceStatusResult" nillable="true" type="tns:DeviceStatusResult" />
+  <xs:complexType name="DeviceMetricStatusResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DeviceName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Statistics" nillable="true" type="tns:ArrayOfMetricStatusResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviceMetricStatusResult" nillable="true" type="tns:DeviceMetricStatusResult" />
+  <xs:complexType name="ArrayOfMetricStatusResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MetricStatusResult" nillable="true" type="tns:MetricStatusResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMetricStatusResult" nillable="true" type="tns:ArrayOfMetricStatusResult" />
+  <xs:complexType name="MetricStatusResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CounterName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="TimeFrameResult" nillable="true" type="tns:ArrayOfMetricTimeFrameResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MetricStatusResult" nillable="true" type="tns:MetricStatusResult" />
+  <xs:complexType name="ArrayOfMetricTimeFrameResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MetricTimeFrameResult" nillable="true" type="tns:MetricTimeFrameResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMetricTimeFrameResult" nillable="true" type="tns:ArrayOfMetricTimeFrameResult" />
+  <xs:complexType name="MetricTimeFrameResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Status" type="tns:StatusData.Status" />
+      <xs:element minOccurs="0" name="Trend" type="tns:StatusData.Trends" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MetricTimeFrameResult" nillable="true" type="tns:MetricTimeFrameResult" />
+  <xs:simpleType name="StatusData.Trends">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Down" />
+      <xs:enumeration value="Steady" />
+      <xs:enumeration value="Up" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="StatusData.Trends" nillable="true" type="tns:StatusData.Trends" />
 </xs:schema>

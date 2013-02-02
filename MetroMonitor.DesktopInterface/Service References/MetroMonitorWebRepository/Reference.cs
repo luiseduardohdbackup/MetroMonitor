@@ -1469,6 +1469,185 @@ namespace MetroMonitor.DesktopInterface.MetroMonitorWebRepository {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DeviceMetricStatusResult", Namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Results")]
+    public partial class DeviceMetricStatusResult : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string DeviceNameField;
+        
+        private int IdField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<MetroMonitor.DesktopInterface.MetroMonitorWebRepository.MetricStatusResult> StatisticsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DeviceName {
+            get {
+                return this.DeviceNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DeviceNameField, value) != true)) {
+                    this.DeviceNameField = value;
+                    this.RaisePropertyChanged("DeviceName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<MetroMonitor.DesktopInterface.MetroMonitorWebRepository.MetricStatusResult> Statistics {
+            get {
+                return this.StatisticsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StatisticsField, value) != true)) {
+                    this.StatisticsField = value;
+                    this.RaisePropertyChanged("Statistics");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MetricStatusResult", Namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Results")]
+    public partial class MetricStatusResult : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string CounterNameField;
+        
+        private int IdField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<MetroMonitor.DesktopInterface.MetroMonitorWebRepository.MetricTimeFrameResult> TimeFrameResultField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CounterName {
+            get {
+                return this.CounterNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CounterNameField, value) != true)) {
+                    this.CounterNameField = value;
+                    this.RaisePropertyChanged("CounterName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<MetroMonitor.DesktopInterface.MetroMonitorWebRepository.MetricTimeFrameResult> TimeFrameResult {
+            get {
+                return this.TimeFrameResultField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TimeFrameResultField, value) != true)) {
+                    this.TimeFrameResultField = value;
+                    this.RaisePropertyChanged("TimeFrameResult");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MetricTimeFrameResult", Namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Results")]
+    public partial class MetricTimeFrameResult : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private MetroMonitor.DesktopInterface.MetroMonitorWebRepository.StatusDataStatus StatusField;
+        
+        private MetroMonitor.DesktopInterface.MetroMonitorWebRepository.StatusDataTrends TrendField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MetroMonitor.DesktopInterface.MetroMonitorWebRepository.StatusDataStatus Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MetroMonitor.DesktopInterface.MetroMonitorWebRepository.StatusDataTrends Trend {
+            get {
+                return this.TrendField;
+            }
+            set {
+                if ((this.TrendField.Equals(value) != true)) {
+                    this.TrendField = value;
+                    this.RaisePropertyChanged("Trend");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="StatusData.Trends", Namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Results")]
+    public enum StatusDataTrends : byte {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Down = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Steady = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Up = 2,
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MetroMonitorWebRepository.IDataRepository")]
     public interface IDataRepository {
@@ -1988,6 +2167,9 @@ namespace MetroMonitor.DesktopInterface.MetroMonitorWebRepository {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStatisticsContract/GetStatusesForAllDevices", ReplyAction="http://tempuri.org/IStatisticsContract/GetStatusesForAllDevicesResponse")]
         System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceStatusResult>> GetStatusesForAllDevicesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStatisticsContract/GetCounterSummaryStatus", ReplyAction="http://tempuri.org/IStatisticsContract/GetCounterSummaryStatusResponse")]
+        System.Threading.Tasks.Task<MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceMetricStatusResult> GetCounterSummaryStatusAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2039,6 +2221,10 @@ namespace MetroMonitor.DesktopInterface.MetroMonitorWebRepository {
         
         public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceStatusResult>> GetStatusesForAllDevicesAsync() {
             return base.Channel.GetStatusesForAllDevicesAsync();
+        }
+        
+        public System.Threading.Tasks.Task<MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceMetricStatusResult> GetCounterSummaryStatusAsync(int id) {
+            return base.Channel.GetCounterSummaryStatusAsync(id);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync() {

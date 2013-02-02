@@ -13,6 +13,8 @@ namespace MetroMonitor.DataServices
 
         DeviceMetricStatusResult GetCounterSummaryStatus(int id);
 
+       // IEnumerable<DeviceMetricStatusResult> GetStatusForAllMetricsForDevice(int deviceId);
+
         //DeviceAvailabilityCollection GetDeviceAvailabilityView();
 
         //ThresholdBreachedSystemsCollection GetThresholdBreachedSystemDeviceStatusList();

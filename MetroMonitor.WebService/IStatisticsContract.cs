@@ -21,9 +21,9 @@ namespace MetroMonitor.WebService
 
         [OperationContract]
         IEnumerable<DeviceStatusResult> GetStatusesForAllDevices();
-       
-        //[OperationContract]
-        //DeviceMetricStatusResult GetCounterSummaryStatus(int id);
+
+        [OperationContract]
+        DeviceMetricStatusResult GetCounterSummaryStatus(int id);
         
         //[OperationContract]
         //DeviceAvailabilityCollection GetDeviceAvailabilityView();

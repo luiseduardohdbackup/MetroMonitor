@@ -110,17 +110,14 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DeviceStatuses.xaml.cs">
+      <DependentUpon>DeviceStatuses.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditCounterView.xaml.cs">
       <DependentUpon>EditCounterView.xaml</DependentUpon>
     </Compile>
     <Compile Include="GroupedItemsPage.xaml.cs">
       <DependentUpon>GroupedItemsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="GroupDetailPage.xaml.cs">
-      <DependentUpon>GroupDetailPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ItemDetailPage.xaml.cs">
-      <DependentUpon>ItemDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ManageDevice.xaml.cs">
       <DependentUpon>ManageDevice.xaml</DependentUpon>
@@ -205,6 +202,9 @@
     <None Include="Service References\MetroMonitorWebRepository\MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceDataContract.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\MetroMonitorWebRepository\MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceMetricStatusResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\MetroMonitorWebRepository\MetroMonitor.DesktopInterface.MetroMonitorWebRepository.DeviceStatusResult.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -238,19 +238,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="DeviceStatuses.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EditCounterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GroupedItemsPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="GroupDetailPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="ItemDetailPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

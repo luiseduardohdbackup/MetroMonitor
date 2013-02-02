@@ -54,6 +54,8 @@ namespace MetroMonitor.DesktopInterface
         }
 
         private void GenerateReadIntervalUI() {
+            SetPropsRec.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            RITB.Visibility = Windows.UI.Xaml.Visibility.Visible;
             for (int i = 0; i < 20; i++)
             {
                 ReadIntervalDD.Items.Add(new ComboBoxItem
@@ -83,6 +85,7 @@ namespace MetroMonitor.DesktopInterface
             }
 
             LogIntervalDD.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            LITB.Visibility = Windows.UI.Xaml.Visibility.Visible;
 
         }
 
@@ -100,6 +103,7 @@ namespace MetroMonitor.DesktopInterface
             }
 
             MaxThresholdDD.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            MTTB.Visibility = Windows.UI.Xaml.Visibility.Visible;
 
         }
 
@@ -115,8 +119,9 @@ namespace MetroMonitor.DesktopInterface
 
                 });
             }
-
+            MinThresTB.Visibility = Windows.UI.Xaml.Visibility.Visible;
             MinThresholdDD.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            SetPropsRec.Visibility = Windows.UI.Xaml.Visibility.Visible;
 
         }
 
@@ -140,7 +145,19 @@ namespace MetroMonitor.DesktopInterface
             var c = CounterToAddDD.SelectedItem;
             var sc = (ComboBoxItem)c;
 
-            testarea1.Text = e.Content + " " + e.DataContext;
+            var ri = ReadIntervalDD.SelectedItem;
+            var ricb = (ComboBoxItem)ri;
+
+            var li = LogIntervalDD.SelectedItem;
+            var licb = (ComboBoxItem)li;
+
+            var maxt = MaxThresholdDD.SelectedItem;
+            var maxtcb = (ComboBoxItem)maxt;
+
+            var mint = MinThresholdDD.SelectedItem;
+            var mintcb = (ComboBoxItem)mint;
+
+            AddedCounterNotificationTB.Text = sc.Content.ToString() + " Successfully Added to " + e.Content.ToString();
 
             counterClient.AddMetricAsync(new CounterCreate
             {
@@ -150,10 +167,10 @@ namespace MetroMonitor.DesktopInterface
 
                 Metric = new CounterBase {
                 Description = string.Empty,
-                LogInterval = 0,
-                MaxThreshold =0,
-                MinThreshold =0,
-                ReadInterval =0
+                LogInterval = (int)licb.Content,
+                MaxThreshold = (int)maxtcb.Content,
+                MinThreshold = (int)mintcb.Content,
+                ReadInterval = (int)ricb.Content
                 }
             });
             
@@ -204,8 +221,8 @@ namespace MetroMonitor.DesktopInterface
 
         private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-            testarea1.Text += e.AddedItems.ToString(); 
             GenerateReadIntervalUI();
+         
         }
                
         private void DeviceNameDD_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -220,13 +237,13 @@ namespace MetroMonitor.DesktopInterface
 
         private void LogIntervalDD_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            GenerateMaxThresholUI();
+           GenerateMaxThresholUI();
 
         }
 
         private void MaxThresholdDD_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            GenerateMinThresholdUI();
+          GenerateMinThresholdUI();
         }
 
         private void MinThresholdDD_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -236,7 +253,6 @@ namespace MetroMonitor.DesktopInterface
 
         private void ConfirmationButton_Click(object sender, RoutedEventArgs e)
         {
-            testarea1.Text += sender.ToString() + e.ToString();
             SerializeFormData();
         }
     }

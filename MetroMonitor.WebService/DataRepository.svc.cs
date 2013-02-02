@@ -261,6 +261,11 @@ namespace MetroMonitor.WebService
 
         }
 
+        public DeviceMetricStatusResult GetCounterSummaryStatus(int id) {
+
+            return _statisticsProcessingService.GetCounterSummaryStatus(id);
+        }
+
         public StatisticsDataContract GetCurrentStatus(int counterId) {
 
             return new StatisticsDataContract

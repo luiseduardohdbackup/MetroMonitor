@@ -157,6 +157,12 @@
   <wsdl:message name="IStatisticsContract_GetStatusesForAllDevices_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetStatusesForAllDevicesResponse" />
   </wsdl:message>
+  <wsdl:message name="IStatisticsContract_GetCounterSummaryStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCounterSummaryStatus" />
+  </wsdl:message>
+  <wsdl:message name="IStatisticsContract_GetCounterSummaryStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCounterSummaryStatusResponse" />
+  </wsdl:message>
   <wsdl:portType name="IDataRepository">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IDataRepository/GetData" message="tns:IDataRepository_GetData_InputMessage" />
@@ -261,6 +267,10 @@
     <wsdl:operation name="GetStatusesForAllDevices">
       <wsdl:input wsaw:Action="http://tempuri.org/IStatisticsContract/GetStatusesForAllDevices" message="tns:IStatisticsContract_GetStatusesForAllDevices_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IStatisticsContract/GetStatusesForAllDevicesResponse" message="tns:IStatisticsContract_GetStatusesForAllDevices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCounterSummaryStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStatisticsContract/GetCounterSummaryStatus" message="tns:IStatisticsContract_GetCounterSummaryStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStatisticsContract/GetCounterSummaryStatusResponse" message="tns:IStatisticsContract_GetCounterSummaryStatus_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDataRepository" type="tns:IDataRepository">
@@ -486,6 +496,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetStatusesForAllDevices">
       <soap:operation soapAction="http://tempuri.org/IStatisticsContract/GetStatusesForAllDevices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCounterSummaryStatus">
+      <soap:operation soapAction="http://tempuri.org/IStatisticsContract/GetCounterSummaryStatus" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
