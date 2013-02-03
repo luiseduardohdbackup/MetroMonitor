@@ -51,18 +51,27 @@ namespace MetroMonitor.DesktopInterface
             foreach (var data in statuses) {
                 var tb = new TextBlock();
                 tb.Text = data.DeviceName + data.Status;
+                tb.DataContext = data.Id;
 
-              
+                listSource.Add(tb);
             
             }
 
             DSList.ItemsSource = listSource;
-
-        
         }
 
-        private async void loadCounterStatusesFromDevice(int decviceId) {
+        private async void loadCounterStatusesFromDevice(int deviceId) {
             var listview = new ListView();
+            var data = await StatisticsClient.GetCounterSummaryStatusAsync(deviceId);
+            foreach(var d in data.Statistics){
+                counterStatusesTB.Text += d.CounterName + " ";
+
+                foreach (var stats in d.TimeFrameResult) {
+
+                    counterStatusesTB.Text += stats.Status.ToString();
+                }
+            
+            }
          
         }
 
@@ -91,6 +100,9 @@ namespace MetroMonitor.DesktopInterface
 
         private void DeviceStatusListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            var list = DSList.SelectedItem;
+            var selectedData = (TextBlock)list;
+            loadCounterStatusesFromDevice((int)selectedData.DataContext);
 
         }
     }

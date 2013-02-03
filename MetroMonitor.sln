@@ -17,6 +17,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroMonitor.DesktopInterfa
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroMonitor.MobileInterface", "MetroMonitor.MobileInterface\MetroMonitor.MobileInterface.csproj", "{A69826BF-5C8F-48F7-A680-3086A2D92D02}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E9FAE830-8EA3-4110-B4E0-0A15477BA571} = {E9FAE830-8EA3-4110-B4E0-0A15477BA571}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

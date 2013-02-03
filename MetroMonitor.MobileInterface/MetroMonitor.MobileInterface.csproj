@@ -93,6 +93,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -103,12 +106,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Service References\MobileWebRepository\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -119,6 +131,59 @@
     <None Include="Properties\WMAppManifest.xml">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\MobileWebRepository\DataRepository.wsdl" />
+    <None Include="Service References\MobileWebRepository\DataRepository.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MobileWebRepository\DataRepository1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MobileWebRepository\DataRepository2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MobileWebRepository\DataRepository3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MobileWebRepository\DataRepository4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MobileWebRepository\DataRepository5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MobileWebRepository\DataRepository6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MobileWebRepository\DataRepository7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MobileWebRepository\DataRepository8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MobileWebRepository\MetroMonitor.MobileInterface.MobileWebRepository.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobileWebRepository\MetroMonitor.MobileInterface.MobileWebRepository.CounterDataContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobileWebRepository\MetroMonitor.MobileInterface.MobileWebRepository.DeviceDataContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobileWebRepository\MetroMonitor.MobileInterface.MobileWebRepository.DeviceMetricStatusResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobileWebRepository\MetroMonitor.MobileInterface.MobileWebRepository.DeviceStatusResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobileWebRepository\MetroMonitor.MobileInterface.MobileWebRepository.GraphDataContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobileWebRepository\MetroMonitor.MobileInterface.MobileWebRepository.MetricDetailsData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobileWebRepository\MetroMonitor.MobileInterface.MobileWebRepository.StatisticsDataContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AlignmentGrid.png" />
@@ -140,12 +205,28 @@
     <Content Include="Assets\Tiles\IconicTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Service References\MobileWebRepository\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\MobileWebRepository\configuration.svcinfo" />
+    <None Include="Service References\MobileWebRepository\configuration91.svcinfo" />
+    <None Include="Service References\MobileWebRepository\DataRepository.disco" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\MobileWebRepository\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

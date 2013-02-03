@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DataRepository" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService" />
+      <xsd:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Results" />
+      <xsd:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.Entities" />
+      <xsd:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService.DataMembers" />
+      <xsd:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Devices" />
+      <xsd:import schemaLocation="http://localhost:3460/DataRepository.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Counters" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDataRepository_GetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="IDataRepository_GetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataRepository_GetAvailableDevices_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableDevices" />
+  </wsdl:message>
+  <wsdl:message name="IDataRepository_GetAvailableDevices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableDevicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataRepository_GetAvailableCountersForDevice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableCountersForDevice" />
+  </wsdl:message>
+  <wsdl:message name="IDataRepository_GetAvailableCountersForDevice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableCountersForDeviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataRepository_GetResult_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetResult" />
+  </wsdl:message>
+  <wsdl:message name="IDataRepository_GetResult_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataRepository_GetTestData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTestData" />
+  </wsdl:message>
+  <wsdl:message name="IDataRepository_GetTestData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTestDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataRepository_GetDataUsingDataContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
+  </wsdl:message>
+  <wsdl:message name="IDataRepository_GetDataUsingDataContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceContracts_AddDevice_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDevice" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceContracts_AddDevice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDeviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceContracts_DeleteDevice_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDevice" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceContracts_DeleteDevice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDeviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceContracts_EditDevice_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditDevice" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceContracts_EditDevice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditDeviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceContracts_DeviceDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeviceDetails" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceContracts_DeviceDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeviceDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceContracts_LoadDeviceList_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadDeviceList" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceContracts_LoadDeviceList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadDeviceListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICounterContracts_AddMetric_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMetric" />
+  </wsdl:message>
+  <wsdl:message name="ICounterContracts_AddMetric_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMetricResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICounterContracts_DeleteMetric_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMetric" />
+  </wsdl:message>
+  <wsdl:message name="ICounterContracts_DeleteMetric_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMetricResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICounterContracts_EditMetric_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditMetric" />
+  </wsdl:message>
+  <wsdl:message name="ICounterContracts_EditMetric_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditMetricResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICounterContracts_LoadAvailableCounters_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAvailableCounters" />
+  </wsdl:message>
+  <wsdl:message name="ICounterContracts_LoadAvailableCounters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAvailableCountersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICounterContracts_MetricDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:MetricDetails" />
+  </wsdl:message>
+  <wsdl:message name="ICounterContracts_MetricDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MetricDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICounterContracts_GetMetricDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMetricDetails" />
+  </wsdl:message>
+  <wsdl:message name="ICounterContracts_GetMetricDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMetricDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICounterContracts_LoadMetricList_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadMetricList" />
+  </wsdl:message>
+  <wsdl:message name="ICounterContracts_LoadMetricList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadMetricListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICounterContracts_ComboBoxCounterData_InputMessage">
+    <wsdl:part name="parameters" element="tns:ComboBoxCounterData" />
+  </wsdl:message>
+  <wsdl:message name="ICounterContracts_ComboBoxCounterData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ComboBoxCounterDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGraphContract_MetricsOverveiwForDevice_InputMessage">
+    <wsdl:part name="parameters" element="tns:MetricsOverveiwForDevice" />
+  </wsdl:message>
+  <wsdl:message name="IGraphContract_MetricsOverveiwForDevice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MetricsOverveiwForDeviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGraphContract_GetResultsSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetResultsSet" />
+  </wsdl:message>
+  <wsdl:message name="IGraphContract_GetResultsSet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetResultsSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGraphContract_TestService_InputMessage">
+    <wsdl:part name="parameters" element="tns:TestService" />
+  </wsdl:message>
+  <wsdl:message name="IGraphContract_TestService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStatisticsContract_GetCurrentStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentStatus" />
+  </wsdl:message>
+  <wsdl:message name="IStatisticsContract_GetCurrentStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStatisticsContract_GetStatusesForAllDevices_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatusesForAllDevices" />
+  </wsdl:message>
+  <wsdl:message name="IStatisticsContract_GetStatusesForAllDevices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatusesForAllDevicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStatisticsContract_GetCounterSummaryStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCounterSummaryStatus" />
+  </wsdl:message>
+  <wsdl:message name="IStatisticsContract_GetCounterSummaryStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCounterSummaryStatusResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDataRepository">
+    <wsdl:operation name="GetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataRepository/GetData" message="tns:IDataRepository_GetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataRepository/GetDataResponse" message="tns:IDataRepository_GetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableDevices">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataRepository/GetAvailableDevices" message="tns:IDataRepository_GetAvailableDevices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataRepository/GetAvailableDevicesResponse" message="tns:IDataRepository_GetAvailableDevices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableCountersForDevice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataRepository/GetAvailableCountersForDevice" message="tns:IDataRepository_GetAvailableCountersForDevice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataRepository/GetAvailableCountersForDeviceResponse" message="tns:IDataRepository_GetAvailableCountersForDevice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResult">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataRepository/GetResult" message="tns:IDataRepository_GetResult_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataRepository/GetResultResponse" message="tns:IDataRepository_GetResult_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTestData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataRepository/GetTestData" message="tns:IDataRepository_GetTestData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataRepository/GetTestDataResponse" message="tns:IDataRepository_GetTestData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataRepository/GetDataUsingDataContract" message="tns:IDataRepository_GetDataUsingDataContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataRepository/GetDataUsingDataContractResponse" message="tns:IDataRepository_GetDataUsingDataContract_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IDeviceContracts">
+    <wsdl:operation name="AddDevice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceContracts/AddDevice" message="tns:IDeviceContracts_AddDevice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceContracts/AddDeviceResponse" message="tns:IDeviceContracts_AddDevice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDevice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceContracts/DeleteDevice" message="tns:IDeviceContracts_DeleteDevice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceContracts/DeleteDeviceResponse" message="tns:IDeviceContracts_DeleteDevice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditDevice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceContracts/EditDevice" message="tns:IDeviceContracts_EditDevice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceContracts/EditDeviceResponse" message="tns:IDeviceContracts_EditDevice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeviceDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceContracts/DeviceDetails" message="tns:IDeviceContracts_DeviceDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceContracts/DeviceDetailsResponse" message="tns:IDeviceContracts_DeviceDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadDeviceList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceContracts/LoadDeviceList" message="tns:IDeviceContracts_LoadDeviceList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceContracts/LoadDeviceListResponse" message="tns:IDeviceContracts_LoadDeviceList_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ICounterContracts">
+    <wsdl:operation name="AddMetric">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICounterContracts/AddMetric" message="tns:ICounterContracts_AddMetric_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICounterContracts/AddMetricResponse" message="tns:ICounterContracts_AddMetric_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMetric">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICounterContracts/DeleteMetric" message="tns:ICounterContracts_DeleteMetric_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICounterContracts/DeleteMetricResponse" message="tns:ICounterContracts_DeleteMetric_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditMetric">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICounterContracts/EditMetric" message="tns:ICounterContracts_EditMetric_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICounterContracts/EditMetricResponse" message="tns:ICounterContracts_EditMetric_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadAvailableCounters">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICounterContracts/LoadAvailableCounters" message="tns:ICounterContracts_LoadAvailableCounters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICounterContracts/LoadAvailableCountersResponse" message="tns:ICounterContracts_LoadAvailableCounters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MetricDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICounterContracts/MetricDetails" message="tns:ICounterContracts_MetricDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICounterContracts/MetricDetailsResponse" message="tns:ICounterContracts_MetricDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMetricDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICounterContracts/GetMetricDetails" message="tns:ICounterContracts_GetMetricDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICounterContracts/GetMetricDetailsResponse" message="tns:ICounterContracts_GetMetricDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadMetricList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICounterContracts/LoadMetricList" message="tns:ICounterContracts_LoadMetricList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICounterContracts/LoadMetricListResponse" message="tns:ICounterContracts_LoadMetricList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ComboBoxCounterData">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICounterContracts/ComboBoxCounterData" message="tns:ICounterContracts_ComboBoxCounterData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICounterContracts/ComboBoxCounterDataResponse" message="tns:ICounterContracts_ComboBoxCounterData_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IGraphContract">
+    <wsdl:operation name="MetricsOverveiwForDevice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGraphContract/MetricsOverveiwForDevice" message="tns:IGraphContract_MetricsOverveiwForDevice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGraphContract/MetricsOverveiwForDeviceResponse" message="tns:IGraphContract_MetricsOverveiwForDevice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResultsSet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGraphContract/GetResultsSet" message="tns:IGraphContract_GetResultsSet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGraphContract/GetResultsSetResponse" message="tns:IGraphContract_GetResultsSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TestService">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGraphContract/TestService" message="tns:IGraphContract_TestService_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGraphContract/TestServiceResponse" message="tns:IGraphContract_TestService_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IStatisticsContract">
+    <wsdl:operation name="GetCurrentStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStatisticsContract/GetCurrentStatus" message="tns:IStatisticsContract_GetCurrentStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStatisticsContract/GetCurrentStatusResponse" message="tns:IStatisticsContract_GetCurrentStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusesForAllDevices">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStatisticsContract/GetStatusesForAllDevices" message="tns:IStatisticsContract_GetStatusesForAllDevices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStatisticsContract/GetStatusesForAllDevicesResponse" message="tns:IStatisticsContract_GetStatusesForAllDevices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCounterSummaryStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStatisticsContract/GetCounterSummaryStatus" message="tns:IStatisticsContract_GetCounterSummaryStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStatisticsContract/GetCounterSummaryStatusResponse" message="tns:IStatisticsContract_GetCounterSummaryStatus_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDataRepository" type="tns:IDataRepository">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/IDataRepository/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableDevices">
+      <soap:operation soapAction="http://tempuri.org/IDataRepository/GetAvailableDevices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableCountersForDevice">
+      <soap:operation soapAction="http://tempuri.org/IDataRepository/GetAvailableCountersForDevice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResult">
+      <soap:operation soapAction="http://tempuri.org/IDataRepository/GetResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTestData">
+      <soap:operation soapAction="http://tempuri.org/IDataRepository/GetTestData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <soap:operation soapAction="http://tempuri.org/IDataRepository/GetDataUsingDataContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IDeviceContracts" type="tns:IDeviceContracts">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddDevice">
+      <soap:operation soapAction="http://tempuri.org/IDeviceContracts/AddDevice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDevice">
+      <soap:operation soapAction="http://tempuri.org/IDeviceContracts/DeleteDevice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDevice">
+      <soap:operation soapAction="http://tempuri.org/IDeviceContracts/EditDevice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeviceDetails">
+      <soap:operation soapAction="http://tempuri.org/IDeviceContracts/DeviceDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDeviceList">
+      <soap:operation soapAction="http://tempuri.org/IDeviceContracts/LoadDeviceList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_ICounterContracts" type="tns:ICounterContracts">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddMetric">
+      <soap:operation soapAction="http://tempuri.org/ICounterContracts/AddMetric" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMetric">
+      <soap:operation soapAction="http://tempuri.org/ICounterContracts/DeleteMetric" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditMetric">
+      <soap:operation soapAction="http://tempuri.org/ICounterContracts/EditMetric" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAvailableCounters">
+      <soap:operation soapAction="http://tempuri.org/ICounterContracts/LoadAvailableCounters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MetricDetails">
+      <soap:operation soapAction="http://tempuri.org/ICounterContracts/MetricDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMetricDetails">
+      <soap:operation soapAction="http://tempuri.org/ICounterContracts/GetMetricDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadMetricList">
+      <soap:operation soapAction="http://tempuri.org/ICounterContracts/LoadMetricList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComboBoxCounterData">
+      <soap:operation soapAction="http://tempuri.org/ICounterContracts/ComboBoxCounterData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IGraphContract" type="tns:IGraphContract">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="MetricsOverveiwForDevice">
+      <soap:operation soapAction="http://tempuri.org/IGraphContract/MetricsOverveiwForDevice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResultsSet">
+      <soap:operation soapAction="http://tempuri.org/IGraphContract/GetResultsSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestService">
+      <soap:operation soapAction="http://tempuri.org/IGraphContract/TestService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IStatisticsContract" type="tns:IStatisticsContract">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCurrentStatus">
+      <soap:operation soapAction="http://tempuri.org/IStatisticsContract/GetCurrentStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusesForAllDevices">
+      <soap:operation soapAction="http://tempuri.org/IStatisticsContract/GetStatusesForAllDevices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCounterSummaryStatus">
+      <soap:operation soapAction="http://tempuri.org/IStatisticsContract/GetCounterSummaryStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DataRepository">
+    <wsdl:port name="BasicHttpBinding_IDataRepository" binding="tns:BasicHttpBinding_IDataRepository">
+      <soap:address location="http://localhost:3460/DataRepository.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IDeviceContracts" binding="tns:BasicHttpBinding_IDeviceContracts">
+      <soap:address location="http://localhost:3460/DataRepository.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_ICounterContracts" binding="tns:BasicHttpBinding_ICounterContracts">
+      <soap:address location="http://localhost:3460/DataRepository.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IGraphContract" binding="tns:BasicHttpBinding_IGraphContract">
+      <soap:address location="http://localhost:3460/DataRepository.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IStatisticsContract" binding="tns:BasicHttpBinding_IStatisticsContract">
+      <soap:address location="http://localhost:3460/DataRepository.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

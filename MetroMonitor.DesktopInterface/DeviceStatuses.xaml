@@ -38,6 +38,7 @@
         </Grid>
         <ListView x:Name="DSList" HorizontalAlignment="Left" Height="345" Margin="225,45,0,0" Grid.Row="1" VerticalAlignment="Top" Width="965" Background="Black" SelectionChanged="DeviceStatusListView_SelectionChanged"/>
         <TextBlock HorizontalAlignment="Left" Margin="145,395,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="{x:Null}"/>
+        <TextBlock x:Name="counterStatusesTB" HorizontalAlignment="Left" Margin="175,435,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
 
 
         <VisualStateManager.VisualStateGroups>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Devices" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Devices" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="DeviceCreate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DeviceName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviceCreate" nillable="true" type="tns:DeviceCreate" />
+  <xs:complexType name="DeviceDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeviceName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviceDetails" nillable="true" type="tns:DeviceDetails" />
+  <xs:complexType name="DeviceEdit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Counters" nillable="true" type="tns:ArrayOfDeviceCounterSummary" />
+      <xs:element minOccurs="0" name="DeviceName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviceEdit" nillable="true" type="tns:DeviceEdit" />
+  <xs:complexType name="ArrayOfDeviceCounterSummary">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DeviceCounterSummary" nillable="true" type="tns:DeviceCounterSummary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDeviceCounterSummary" nillable="true" type="tns:ArrayOfDeviceCounterSummary" />
+  <xs:complexType name="DeviceCounterSummary">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviceCounterSummary" nillable="true" type="tns:DeviceCounterSummary" />
+  <xs:complexType name="DeviceList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Devices" nillable="true" type="tns:ArrayOfDeviceDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviceList" nillable="true" type="tns:DeviceList" />
+  <xs:complexType name="ArrayOfDeviceDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DeviceDetails" nillable="true" type="tns:DeviceDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDeviceDetails" nillable="true" type="tns:ArrayOfDeviceDetails" />
+</xs:schema>
