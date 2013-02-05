@@ -44,7 +44,7 @@ namespace MetroMonitor.DataServices
 
         public Dictionary<int, string> GetCountersForDevice(int deviceId) { 
         
-            var counters = (from c in _context.DeviceCounters where c.Device.Id == deviceId select c).ToList();
+            var counters = (from c in _context.DeviceCounters where c.Device.Id == deviceId && c.Deleted != 1 select c).ToList();
             var returnData = new Dictionary<int, string>();
             foreach (var data in counters) {
                 returnData.Add(data.Id, data.GetDescription().ToString());
@@ -54,7 +54,7 @@ namespace MetroMonitor.DataServices
 
         public bool AddNewDevice(string deviceName)
         {
-           ;
+           
           //  if (!PingService.IsValidDeviceName(deviceName)) throw new InvalidDeviceNameException(deviceName);
          
             _context.Devices.Add(new Device {Name = deviceName, Deleted = 0});
@@ -285,10 +285,10 @@ namespace MetroMonitor.DataServices
             return true;
         }
 
-        public bool UpdateMetric(EditCounter model)
+        public bool UpdateMetric(int counterID, int read, int log, int min, int max)
         {
             var counterInfo = (from d in _context.DeviceCounters
-                               where d.Id == model.Id
+                               where d.Id == counterID
                                select d).FirstOrDefault();
 
 
@@ -300,14 +300,14 @@ namespace MetroMonitor.DataServices
 
             if (counterInfo is DevicePerformanceCounter)
             {
-                var UpdateDetails = (PerformanceCounterMetric)model.UpdatedCounterDetails;
+              //  var UpdateDetails = (PerformanceCounterMetric)model.UpdatedCounterDetails;
                 var performanceInfo = (DevicePerformanceCounter)counterInfo;
                                              
-                performanceInfo.LogInterval = model.UpdatedCounterDetails.LogInterval;
-                performanceInfo.ReadInterval = model.UpdatedCounterDetails.ReadInterval;
-                performanceInfo.MaxThreshold = model.UpdatedCounterDetails.MaxThreshold;
-                performanceInfo.MinThreshold = model.UpdatedCounterDetails.MinThreshold;
-                performanceInfo.InstanceName = UpdateDetails.InstanceName;
+                performanceInfo.LogInterval = log;
+                performanceInfo.ReadInterval = read;
+                performanceInfo.MaxThreshold = max;
+                performanceInfo.MinThreshold = min;
+                performanceInfo.InstanceName = string.Empty;
                 
                 _context.SaveChanges();
                 return true;

@@ -20,15 +20,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CounterBase" nillable="true" type="tns:CounterBase" />
-  <xs:complexType name="EditCounter">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="DeviceId" type="xs:int" />
-      <xs:element minOccurs="0" name="DeviceName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="UpdatedCounterDetails" nillable="true" type="tns:CounterBase" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="EditCounter" nillable="true" type="tns:EditCounter" />
   <xs:complexType name="CounterDetails">
     <xs:sequence>
       <xs:element minOccurs="0" name="Counter" nillable="true" type="tns:CounterBase" />

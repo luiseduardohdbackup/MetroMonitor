@@ -8,13 +8,19 @@
     mc:Ignorable="d">
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
-        <ComboBox x:Name="DeviceListDD" HorizontalAlignment="Left" Margin="190,158,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="DeviceListDD_SelectionChanged"/>
-        <ComboBox x:Name="DeviceCountersDD" HorizontalAlignment="Left" Margin="855,175,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="DeviceCountersDD_SelectionChanged" Visibility="Collapsed"/>
-        <TextBox x:Name="ReadInterTB" HorizontalAlignment="Left" Margin="206,332,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Visibility="Collapsed"/>
-        <TextBox x:Name="LogInterTB" HorizontalAlignment="Left" Margin="315,332,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Visibility="Collapsed"/>
-        <TextBox x:Name="MaxThresTB" HorizontalAlignment="Left" Margin="431,332,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Visibility="Collapsed"/>
-        <TextBox x:Name="MinThresTB" HorizontalAlignment="Left" Margin="539,332,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Visibility="Collapsed"/>
-        <Button x:Name="ConfirmBtn" Content="Confirm" HorizontalAlignment="Left" Margin="459,596,0,0" VerticalAlignment="Top" Click="ConfirmBtn_Click" Visibility="Collapsed"/>
+        
+        <Button x:Name="ConfirmBtn" Content="Confirm" HorizontalAlignment="Left" Margin="600,530,0,0" VerticalAlignment="Top" Click="ConfirmBtn_Click" Visibility="Visible"/>
+        <ListView x:Name="DeviceListDD" HorizontalAlignment="Left" Height="235" Margin="80,10,0,0" VerticalAlignment="Top" Width="320" SelectionChanged="DeviceListDD_SelectionChanged"/>
+        <ListView x:Name="DeviceCountersDD" HorizontalAlignment="Left" Height="230" Margin="915,40,0,0" VerticalAlignment="Top" Width="285" SelectionChanged="DeviceCountersDD_SelectionChanged" Visibility="Collapsed"/>
+        <ComboBox x:Name="ReadInterTB" HorizontalAlignment="Left" Margin="390,395,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="ReadInterTxt" HorizontalAlignment="Left" Margin="425,377,0,0" TextWrapping="Wrap" Text="Read Interval" VerticalAlignment="Top"/>
+        <ComboBox x:Name="LogInterTB" HorizontalAlignment="Left" Margin="540,395,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="LogInterTxt" HorizontalAlignment="Left" Margin="570,377,0,0" TextWrapping="Wrap" Text="Log Interval" VerticalAlignment="Top"/>
+        <ComboBox x:Name="MaxThresTB" HorizontalAlignment="Left" Margin="719,395,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="MaxThresTxt" HorizontalAlignment="Left" Margin="740,377,0,0" TextWrapping="Wrap" Text="Maximum Threshold" VerticalAlignment="Top"/>
+        <ComboBox x:Name="MinThresTB" HorizontalAlignment="Left" Margin="915,395,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="MinThresTxt" HorizontalAlignment="Left" Margin="915,377,0,0" TextWrapping="Wrap" Text="Minimum Threshold" VerticalAlignment="Top"/>
+        <TextBlock x:Name="UpdateStatusTB" HorizontalAlignment="Left" Margin="600,625,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="165"/>
 
     </Grid>
 </Page>

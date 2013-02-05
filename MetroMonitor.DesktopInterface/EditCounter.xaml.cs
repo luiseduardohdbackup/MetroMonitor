@@ -12,14 +12,14 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
+// The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
 namespace MetroMonitor.DesktopInterface
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class EditCounterView : Page
+    public sealed partial class EditCounter : MetroMonitor.DesktopInterface.Common.LayoutAwarePage
     {
         MetroMonitorWebRepository.DataRepositoryClient dataClient = new MetroMonitorWebRepository.DataRepositoryClient();
 
@@ -31,7 +31,7 @@ namespace MetroMonitor.DesktopInterface
 
         private int SelectCounter;
 
-        public EditCounterView()
+        public EditCounter()
         {
             this.InitializeComponent();
             LoadDeviceDropDownContent();

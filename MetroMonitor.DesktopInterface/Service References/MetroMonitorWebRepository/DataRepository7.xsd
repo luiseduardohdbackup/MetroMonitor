@@ -183,7 +183,11 @@
   <xs:element name="EditMetric">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Counters" minOccurs="0" name="counter" nillable="true" type="q10:EditCounter" />
+        <xs:element minOccurs="0" name="counterID" type="xs:int" />
+        <xs:element minOccurs="0" name="read" type="xs:int" />
+        <xs:element minOccurs="0" name="log" type="xs:int" />
+        <xs:element minOccurs="0" name="min" type="xs:int" />
+        <xs:element minOccurs="0" name="max" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -202,7 +206,7 @@
   <xs:element name="LoadAvailableCountersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="LoadAvailableCountersResult" nillable="true" type="q11:ArrayOfKeyValueOfintstring" />
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="LoadAvailableCountersResult" nillable="true" type="q10:ArrayOfKeyValueOfintstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -217,7 +221,7 @@
   <xs:element name="MetricDetailsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService.DataMembers" minOccurs="0" name="MetricDetailsResult" nillable="true" type="q12:CounterDataContract" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService.DataMembers" minOccurs="0" name="MetricDetailsResult" nillable="true" type="q11:CounterDataContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -232,7 +236,7 @@
   <xs:element name="GetMetricDetailsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService.DataMembers" minOccurs="0" name="GetMetricDetailsResult" nillable="true" type="q13:MetricDetailsData" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService.DataMembers" minOccurs="0" name="GetMetricDetailsResult" nillable="true" type="q12:MetricDetailsData" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -246,7 +250,7 @@
   <xs:element name="LoadMetricListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService.DataMembers" minOccurs="0" name="LoadMetricListResult" nillable="true" type="q14:CounterDataContract" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService.DataMembers" minOccurs="0" name="LoadMetricListResult" nillable="true" type="q13:CounterDataContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -258,7 +262,7 @@
   <xs:element name="ComboBoxCounterDataResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService.DataMembers" minOccurs="0" name="ComboBoxCounterDataResult" nillable="true" type="q15:CounterDataContract" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService.DataMembers" minOccurs="0" name="ComboBoxCounterDataResult" nillable="true" type="q14:CounterDataContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -272,7 +276,7 @@
   <xs:element name="MetricsOverveiwForDeviceResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService" minOccurs="0" name="MetricsOverveiwForDeviceResult" nillable="true" type="q16:GraphDataContract" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService" minOccurs="0" name="MetricsOverveiwForDeviceResult" nillable="true" type="q15:GraphDataContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -286,7 +290,7 @@
   <xs:element name="GetResultsSetResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService" minOccurs="0" name="GetResultsSetResult" nillable="true" type="q17:GraphDataContract" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService" minOccurs="0" name="GetResultsSetResult" nillable="true" type="q16:GraphDataContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -312,7 +316,7 @@
   <xs:element name="GetCurrentStatusResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService.DataMembers" minOccurs="0" name="GetCurrentStatusResult" nillable="true" type="q18:StatisticsDataContract" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService.DataMembers" minOccurs="0" name="GetCurrentStatusResult" nillable="true" type="q17:StatisticsDataContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -324,7 +328,7 @@
   <xs:element name="GetStatusesForAllDevicesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Results" minOccurs="0" name="GetStatusesForAllDevicesResult" nillable="true" type="q19:ArrayOfDeviceStatusResult" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Results" minOccurs="0" name="GetStatusesForAllDevicesResult" nillable="true" type="q18:ArrayOfDeviceStatusResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -338,7 +342,7 @@
   <xs:element name="GetCounterSummaryStatusResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Results" minOccurs="0" name="GetCounterSummaryStatusResult" nillable="true" type="q20:DeviceMetricStatusResult" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Results" minOccurs="0" name="GetCounterSummaryStatusResult" nillable="true" type="q19:DeviceMetricStatusResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

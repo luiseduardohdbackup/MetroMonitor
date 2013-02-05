@@ -172,10 +172,10 @@ namespace MetroMonitor.WebService
         }
 
 
-        public bool EditMetric(EditCounter counter)
+        public bool EditMetric(int counterID, int read, int log, int min, int max)
         {
 
-            return _dataAccessService.UpdateMetric(counter);
+            return _dataAccessService.UpdateMetric(counterID, read, log, min, max);
         }
 
         public Dictionary<int, string> GetAvailableCountersForDevice(int deviceId) {

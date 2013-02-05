@@ -113,6 +113,9 @@
     <Compile Include="DeviceStatuses.xaml.cs">
       <DependentUpon>DeviceStatuses.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditCounter.xaml.cs">
+      <DependentUpon>EditCounter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditCounterView.xaml.cs">
       <DependentUpon>EditCounterView.xaml</DependentUpon>
     </Compile>
@@ -239,6 +242,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="DeviceStatuses.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditCounter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

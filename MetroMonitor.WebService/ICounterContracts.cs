@@ -23,7 +23,7 @@ namespace MetroMonitor.WebService
         bool DeleteMetric(int id);
 
         [OperationContract]
-        bool EditMetric(EditCounter counter);
+        bool EditMetric(int counterID, int read, int log, int min, int max);
 
         [OperationContract]
         Dictionary<int, string> LoadAvailableCounters();

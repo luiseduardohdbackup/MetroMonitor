@@ -917,81 +917,6 @@ namespace MetroMonitor.DesktopInterface.MetroMonitorWebRepository {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EditCounter", Namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Counters")]
-    public partial class EditCounter : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private int DeviceIdField;
-        
-        private string DeviceNameField;
-        
-        private int IdField;
-        
-        private MetroMonitor.DesktopInterface.MetroMonitorWebRepository.CounterBase UpdatedCounterDetailsField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int DeviceId {
-            get {
-                return this.DeviceIdField;
-            }
-            set {
-                if ((this.DeviceIdField.Equals(value) != true)) {
-                    this.DeviceIdField = value;
-                    this.RaisePropertyChanged("DeviceId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DeviceName {
-            get {
-                return this.DeviceNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DeviceNameField, value) != true)) {
-                    this.DeviceNameField = value;
-                    this.RaisePropertyChanged("DeviceName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MetroMonitor.DesktopInterface.MetroMonitorWebRepository.CounterBase UpdatedCounterDetails {
-            get {
-                return this.UpdatedCounterDetailsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UpdatedCounterDetailsField, value) != true)) {
-                    this.UpdatedCounterDetailsField = value;
-                    this.RaisePropertyChanged("UpdatedCounterDetails");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CounterDataContract", Namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService.DataMembers")]
     public partial class CounterDataContract : object, System.ComponentModel.INotifyPropertyChanged {
         
@@ -1914,7 +1839,7 @@ namespace MetroMonitor.DesktopInterface.MetroMonitorWebRepository {
         System.Threading.Tasks.Task<bool> DeleteMetricAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICounterContracts/EditMetric", ReplyAction="http://tempuri.org/ICounterContracts/EditMetricResponse")]
-        System.Threading.Tasks.Task<bool> EditMetricAsync(MetroMonitor.DesktopInterface.MetroMonitorWebRepository.EditCounter counter);
+        System.Threading.Tasks.Task<bool> EditMetricAsync(int counterID, int read, int log, int min, int max);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICounterContracts/LoadAvailableCounters", ReplyAction="http://tempuri.org/ICounterContracts/LoadAvailableCountersResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<int, string>> LoadAvailableCountersAsync();
@@ -1983,8 +1908,8 @@ namespace MetroMonitor.DesktopInterface.MetroMonitorWebRepository {
             return base.Channel.DeleteMetricAsync(id);
         }
         
-        public System.Threading.Tasks.Task<bool> EditMetricAsync(MetroMonitor.DesktopInterface.MetroMonitorWebRepository.EditCounter counter) {
-            return base.Channel.EditMetricAsync(counter);
+        public System.Threading.Tasks.Task<bool> EditMetricAsync(int counterID, int read, int log, int min, int max) {
+            return base.Channel.EditMetricAsync(counterID, read, log, min, max);
         }
         
         public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<int, string>> LoadAvailableCountersAsync() {

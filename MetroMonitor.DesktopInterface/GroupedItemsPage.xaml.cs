@@ -57,9 +57,11 @@ namespace MetroMonitor.DesktopInterface
             // Determine what group the Button instance represents
             var group = (sender as FrameworkElement).DataContext;
 
+            
+
             // Navigate to the appropriate destination page, configuring the new page
             // by passing required information as a navigation parameter
-            this.Frame.Navigate(typeof(DeviceStatuses), ((SampleDataGroup)group).UniqueId);
+            this.Frame.Navigate(typeof(EditCounterView), ((SampleDataGroup)group).UniqueId);
         }
 
         /// <summary>
@@ -73,13 +75,34 @@ namespace MetroMonitor.DesktopInterface
             // Navigate to the appropriate destination page, configuring the new page
             // by passing required information as a navigation parameter
             var itemId = ((SampleDataItem)e.ClickedItem).UniqueId;
-            this.Frame.Navigate(typeof(DeviceStatuses), null);
+            if(itemId == "Group-1-Item-1"){
+                this.Frame.Navigate(typeof(EditCounterView), null);
+            
+            }
+
+            if(itemId == "Group-1-Item-2"){
+                this.Frame.Navigate(typeof(AddCounterView), null);
+            
+            }
+            if (itemId == "Group-1-Item-3")
+            {
+                this.Frame.Navigate(typeof(ManageDevice), null);
+
+            }
+            if (itemId == "Group-1-Item-4")
+            {
+                this.Frame.Navigate(typeof(DeviceStatuses), null);
+
+            }
+
+
+            
            // this.Frame.Navigate(typeof(ItemDetailPage), itemId);
         }
 
         private void itemGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            this.Frame.Navigate(typeof(DeviceStatuses), null);
+            this.Frame.Navigate(typeof(EditCounterView), null);
 
         }
     }
