@@ -36,9 +36,10 @@
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>
-        <ListView x:Name="DSList" HorizontalAlignment="Left" Height="345" Margin="225,45,0,0" Grid.Row="1" VerticalAlignment="Top" Width="965" Background="Black" SelectionChanged="DeviceStatusListView_SelectionChanged"/>
+        <ListView x:Name="DSList" HorizontalAlignment="Left" Height="470" Margin="85,25,0,0" Grid.Row="1" VerticalAlignment="Top" Width="475" Background="Black" SelectionChanged="DeviceStatusListView_SelectionChanged"/>
         <TextBlock HorizontalAlignment="Left" Margin="145,395,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="{x:Null}"/>
-        <TextBlock x:Name="counterStatusesTB" HorizontalAlignment="Left" Margin="175,435,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="counterStatusesTB" HorizontalAlignment="Left" Margin="245,537,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <ListView x:Name="CSList" HorizontalAlignment="Left" Height="470" Margin="800,25,0,0" Grid.Row="1" VerticalAlignment="Top" Width="475" Background="Black" SelectionChanged="DeviceStatusListView_SelectionChanged"/>
 
 
         <VisualStateManager.VisualStateGroups>

@@ -76,27 +76,20 @@ namespace MetroMonitor.DesktopInterface
             // by passing required information as a navigation parameter
             var itemId = ((SampleDataItem)e.ClickedItem).UniqueId;
             if(itemId == "Group-1-Item-1"){
-                this.Frame.Navigate(typeof(EditCounterView), null);
-            
+                this.Frame.Navigate(typeof(EditCounter), null);
             }
-
             if(itemId == "Group-1-Item-2"){
                 this.Frame.Navigate(typeof(AddCounterView), null);
-            
             }
             if (itemId == "Group-1-Item-3")
             {
                 this.Frame.Navigate(typeof(ManageDevice), null);
-
             }
             if (itemId == "Group-1-Item-4")
             {
                 this.Frame.Navigate(typeof(DeviceStatuses), null);
-
             }
 
-
-            
            // this.Frame.Navigate(typeof(ItemDetailPage), itemId);
         }
 

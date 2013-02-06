@@ -14,7 +14,7 @@ using Windows.UI.Xaml.Navigation;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
-namespace MetroMonitor.DesktopInterface
+namespace MetroMonitor.DesktopInterface 
 {
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
@@ -105,7 +105,7 @@ namespace MetroMonitor.DesktopInterface
         private async void LoadSelectedCounterContent(int deviceCounterId, int selectedDevice)
         {
             SelectCounter = deviceCounterId;
-            var counterData = await counterClient.GetMetricDetailsAsync(selectedDevice, deviceCounterId);
+            var counterData = await counterClient.GetMetricDetailsAsync(deviceCounterId, selectedDevice);
           
             if (ReadInterTB.Visibility != Windows.UI.Xaml.Visibility.Collapsed)
             {
@@ -143,7 +143,7 @@ namespace MetroMonitor.DesktopInterface
             var mint= MinThresTB.SelectedItem;
             var licb = (ComboBoxItem)mint;
 
-            var counterUpdated = counterClient.EditMetricAsync(SelectCounter, (int)e.DataContext, (int)sc.DataContext, (int)ricb.DataContext, (int)licb.DataContext);
+            var counterUpdated = await counterClient.EditMetricAsync(SelectCounter, (int)e.DataContext, (int)sc.DataContext, (int)ricb.DataContext, (int)licb.DataContext);
 
             UpdateStatusTB.Text = counterUpdated.ToString();
         
@@ -178,5 +178,7 @@ namespace MetroMonitor.DesktopInterface
         {
             ProcessCounterEdit();
         }
+
+       
     }
 }

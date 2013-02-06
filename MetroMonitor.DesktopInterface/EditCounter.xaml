@@ -37,19 +37,22 @@
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>
         
-        <Button x:Name="ConfirmBtn" Content="Confirm" HorizontalAlignment="Left" Margin="600,530,0,0" VerticalAlignment="Top" Click="ConfirmBtn_Click" Visibility="Visible"/>
-        <ListView x:Name="DeviceListDD" HorizontalAlignment="Left" Height="235" Margin="80,10,0,0" VerticalAlignment="Top" Width="320" SelectionChanged="DeviceListDD_SelectionChanged"/>
-        <ListView x:Name="DeviceCountersDD" HorizontalAlignment="Left" Height="230" Margin="915,40,0,0" VerticalAlignment="Top" Width="285" SelectionChanged="DeviceCountersDD_SelectionChanged"/>
-        <ComboBox x:Name="ReadInterTB" HorizontalAlignment="Left" Margin="390,395,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBlock x:Name="ReadInterTxt" HorizontalAlignment="Left" Margin="425,377,0,0" TextWrapping="Wrap" Text="Read Interval" VerticalAlignment="Top"/>
-        <ComboBox x:Name="LogInterTB" HorizontalAlignment="Left" Margin="535,255,0,0" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
-        <TextBlock x:Name="LogInterTxt" HorizontalAlignment="Left" Margin="570,377,0,0" TextWrapping="Wrap" Text="Log Interval" VerticalAlignment="Top"/>
-        <ComboBox x:Name="MaxThresTB" HorizontalAlignment="Left" Margin="719,395,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBlock x:Name="MaxThresTxt" HorizontalAlignment="Left" Margin="740,377,0,0" TextWrapping="Wrap" Text="Maximum Threshold" VerticalAlignment="Top"/>
-        <ComboBox x:Name="MinThresTB" HorizontalAlignment="Left" Margin="915,395,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBlock x:Name="MinThresTxt" HorizontalAlignment="Left" Margin="915,377,0,0" TextWrapping="Wrap" Text="Minimum Threshold" VerticalAlignment="Top"/>
-        <TextBlock x:Name="UpdateStatusTB" HorizontalAlignment="Left" Margin="600,625,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="165"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="220,237,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+     
+       
+        
+        <Button x:Name="ConfirmBtn" Content="ConfirmBtn" HorizontalAlignment="Left" Margin="575,485,0,0" Grid.Row="1" VerticalAlignment="Top" Click="ConfirmBtn_Click"/>
+        <ListView x:Name="DeviceListDD" HorizontalAlignment="Left" Height="225" Margin="82,25,0,0" Grid.Row="1" VerticalAlignment="Top" Width="373" SelectionChanged="DeviceListDD_SelectionChanged"/>
+        <ListView x:Name="DeviceCountersDD" HorizontalAlignment="Left" Height="225" Margin="885,25,0,0" Grid.Row="1" VerticalAlignment="Top" Width="390" SelectionChanged="DeviceCountersDD_SelectionChanged"/>
+        <ComboBox x:Name="ReadInterTB" HorizontalAlignment="Left" Margin="110,360,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.875,0.625"/>
+        <TextBlock x:Name="ReadInterTxt" HorizontalAlignment="Left" Margin="140,342,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Read Interval" VerticalAlignment="Top"/>
+        <ComboBox x:Name="LogInterTB" HorizontalAlignment="Left" Margin="335,360,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.875,0.625"/>
+        <TextBlock x:Name="LogInterTxt" HorizontalAlignment="Left" Margin="360,342,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Log Interval" VerticalAlignment="Top"/>
+        <ComboBox x:Name="MaxThresTB" HorizontalAlignment="Left" Margin="525,360,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"  RenderTransformOrigin="1.875,0.625"/>
+        <TextBlock x:Name="MaxThresTxt" HorizontalAlignment="Left" Margin="575,342,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Maximum Threshold" VerticalAlignment="Top"/>
+        <ComboBox x:Name="MinThresTB" HorizontalAlignment="Left" Margin="760,360,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"  RenderTransformOrigin="1.875,0.625"/>
+        <TextBlock x:Name="MinThresTxt" HorizontalAlignment="Left" Margin="781,342,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Minimum Threshold" VerticalAlignment="Top"/>
+        <TextBlock x:Name="UpdateStatusTB" HorizontalAlignment="Left" Margin="575,560,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Maximum Threshold" VerticalAlignment="Top"/>
+
 
         <VisualStateManager.VisualStateGroups>
 

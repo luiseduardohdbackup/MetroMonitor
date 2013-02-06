@@ -143,7 +143,7 @@ namespace MetroMonitor.DesktopInterface
             var mint= MinThresTB.SelectedItem;
             var licb = (ComboBoxItem)mint;
 
-            var counterUpdated = counterClient.EditMetricAsync(SelectCounter, (int)e.DataContext, (int)sc.DataContext, (int)ricb.DataContext, (int)licb.DataContext);
+            var counterUpdated = await counterClient.EditMetricAsync(SelectCounter, (int)e.DataContext, (int)sc.DataContext, (int)ricb.DataContext, (int)licb.DataContext);
 
             UpdateStatusTB.Text = counterUpdated.ToString();
         

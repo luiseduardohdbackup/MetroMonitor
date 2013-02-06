@@ -12,6 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Shapes;
+
 
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
@@ -47,31 +49,79 @@ namespace MetroMonitor.DesktopInterface
         private async void AddDevicesToListView() {
 
             var statuses = await StatisticsClient.GetStatusesForAllDevicesAsync();
-            var listSource = new List<TextBlock>();
-            foreach (var data in statuses) {
-                var tb = new TextBlock();
-                tb.Text = data.DeviceName + data.Status;
-                tb.DataContext = data.Id;
 
-                listSource.Add(tb);
+            var grid = new List<Grid>(statuses.Count);
+
+            //var listSource = new List<TextBlock>();
+            //var rectang = new List<Rectangle>();
+           
+            var colour = new SolidColorBrush(Windows.UI.Colors.Red);
+
+         
+            
+            foreach (var data in statuses) {
+                //var tb = new TextBlock();
+                //tb.Text = data.DeviceName + data.Status;
+                //tb.DataContext = data.Id;
+                if (data.Status.ToString() == "Green") { colour.Color = Windows.UI.Colors.Green; }
+                if (data.Status.ToString() == "Yellow") { colour.Color = Windows.UI.Colors.Yellow; }
+                var g = new Grid();
+                g.Children.Add(new Rectangle{Fill = colour});
+                g.Children.Add(new TextBlock{Text = data.DeviceName + data.Status,
+                    DataContext = data.Id});
+
+                //listSource.Add(tb);
+                grid.Add(g);
             
             }
 
-            DSList.ItemsSource = listSource;
+            DSList.ItemsSource = grid;
+         //   DSList.ItemsSource = listSource;
         }
 
         private async void loadCounterStatusesFromDevice(int deviceId) {
-            var listview = new ListView();
-            var data = await StatisticsClient.GetCounterSummaryStatusAsync(deviceId);
-            foreach(var d in data.Statistics){
-                counterStatusesTB.Text += d.CounterName + " ";
+            //var listview = new ListView();
+            
+            //foreach(var d in data.Statistics){
+            //    counterStatusesTB.Text += d.CounterName + " ";
 
-                foreach (var stats in d.TimeFrameResult) {
+            //    foreach (var stats in d.TimeFrameResult) {
+
+            //        counterStatusesTB.Text += stats.Status.ToString();
+            //    }
+            
+            //}
+            var data = await StatisticsClient.GetCounterSummaryStatusAsync(deviceId);
+
+            var grid = new List<Grid>();
+
+            var colour = new SolidColorBrush(Windows.UI.Colors.Red);
+
+            foreach (var d in data.Statistics)
+            {
+
+                foreach (var stats in d.TimeFrameResult)
+                {
+                    
+                if (stats.Status.ToString() == "Green") { colour.Color = Windows.UI.Colors.Green; }
+
+                if (stats.Status.ToString() == "Yellow") { colour.Color = Windows.UI.Colors.Yellow; }
+
+                var g = new Grid();
+                g.Children.Add(new Rectangle { Fill = colour });
+                g.Children.Add(new TextBlock
+                {
+                    Text = d.CounterName.ToString(),
+                    DataContext = d.Id.ToString()
+                });
+
+                grid.Add(g);
 
                     counterStatusesTB.Text += stats.Status.ToString();
                 }
-            
             }
+
+            CSList.ItemsSource = grid;
          
         }
 
@@ -100,9 +150,15 @@ namespace MetroMonitor.DesktopInterface
 
         private void DeviceStatusListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            
             var list = DSList.SelectedItem;
-            var selectedData = (TextBlock)list;
-            loadCounterStatusesFromDevice((int)selectedData.DataContext);
+            var selectedData = (Grid)list;
+          //  var t = selectedData.GetValue(
+       //    var tb = (from t in selectedData.Children where t.Equals(typeof(TextBlock)) select t).FirstOrDefault();
+
+            var tb = (TextBlock)selectedData.Children[1];
+           // var txtb =(TextBlock) tb;
+            loadCounterStatusesFromDevice((int)tb.DataContext);
 
         }
     }
