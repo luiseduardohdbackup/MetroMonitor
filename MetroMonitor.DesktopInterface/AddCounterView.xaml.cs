@@ -33,7 +33,7 @@ namespace MetroMonitor.DesktopInterface
         {
           
             this.InitializeComponent();
-            CounterToAddDD.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+          //  CounterToAddDD.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             LoadDeviceDropDownContent();
         }
 
@@ -41,41 +41,87 @@ namespace MetroMonitor.DesktopInterface
 
             var deviceData = await dataClient.GetAvailableDevicesAsync();
 
+            var listData = new List<TextBlock>();
+
             foreach(var r in deviceData){
-                DeviceNameDD.Items.Add(new ComboBoxItem
-                {
-                    Content = r.Value,
-                    Name = r.Key.ToString(),
-                    DataContext = r.Key
+
+                listData.Add(new TextBlock{Text = r.Value.ToString(), DataContext = r.Key});
+
+                //DeviceNameDD.Items.Add(new ComboBoxItem
+                //{
+                //    Content = r.Value,
+                //    Name = r.Key.ToString(),
+                //    DataContext = r.Key
                     
-                });
-            }
+                //});
+
+            }deviceListView.ItemsSource = listData;
+
         
         }
 
-        private void GenerateReadIntervalUI() {
-            SetPropsRec.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            RITB.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            for (int i = 0; i < 20; i++)
-            {
-                ReadIntervalDD.Items.Add(new ComboBoxItem
-                {
-                    DataContext = i + 4,
-                    Name = i + 4.ToString(),
-                    Content = i + 4
+        //private void GenerateReadIntervalUI() {
+        //    SetPropsRec.Visibility = Windows.UI.Xaml.Visibility.Visible;
+        //    RITB.Visibility = Windows.UI.Xaml.Visibility.Visible;
+        //    for (int i = 0; i < 20; i++)
+        //    {
+        //        ReadIntervalDD.Items.Add(new ComboBoxItem
+        //        {
+        //            DataContext = i + 4,
+        //            Name = i + 4.ToString(),
+        //            Content = i + 4
 
-                });
-            }
+        //        });
+        //    }
 
-            ReadIntervalDD.Visibility = Windows.UI.Xaml.Visibility.Visible;
+        //    ReadIntervalDD.Visibility = Windows.UI.Xaml.Visibility.Visible;
 
-        }
+        //}
 
-        private void GenerateLogIntervalUI()
+        //private void GenerateLogIntervalUI()
+        //{
+        //    for (int i = 0; i < 20; i++)
+        //    {
+        //        LogIntervalDD.Items.Add(new ComboBoxItem
+        //        {
+        //            DataContext = i + 4,
+        //            Name = i + 4.ToString(),
+        //            Content = i + 4
+
+        //        });
+        //    }
+
+        //    LogIntervalDD.Visibility = Windows.UI.Xaml.Visibility.Visible;
+        //    LITB.Visibility = Windows.UI.Xaml.Visibility.Visible;
+
+        //}
+
+        //private void GenerateMaxThresholUI()
+        //{
+        //    for (int i = 0; i < 20; i++)
+        //    {
+        //        MaxThresholdDD.Items.Add(new ComboBoxItem
+        //        {
+        //            DataContext = i + 4,
+        //            Name = i + 4.ToString(),
+        //            Content = i + 4
+
+        //        });
+        //    }
+
+        //    MaxThresholdDD.Visibility = Windows.UI.Xaml.Visibility.Visible;
+        //    MTTB.Visibility = Windows.UI.Xaml.Visibility.Visible;
+
+        //}
+
+        private void GenerateComboBoxContent(ComboBox dropDown, TextBlock textblock)
         {
+
+
+            
             for (int i = 0; i < 20; i++)
             {
-                LogIntervalDD.Items.Add(new ComboBoxItem
+                dropDown.Items.Add(new ComboBoxItem
                 {
                     DataContext = i + 4,
                     Name = i + 4.ToString(),
@@ -83,67 +129,46 @@ namespace MetroMonitor.DesktopInterface
 
                 });
             }
+            
 
-            LogIntervalDD.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            LITB.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            dropDown.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            textblock.Visibility = Windows.UI.Xaml.Visibility.Visible;
 
-        }
 
-        private void GenerateMaxThresholUI()
-        {
-            for (int i = 0; i < 20; i++)
-            {
-                MaxThresholdDD.Items.Add(new ComboBoxItem
-                {
-                    DataContext = i + 4,
-                    Name = i + 4.ToString(),
-                    Content = i + 4
-
-                });
-            }
-
-            MaxThresholdDD.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            MTTB.Visibility = Windows.UI.Xaml.Visibility.Visible;
 
         }
 
-        private void GenerateMinThresholdUI()
-        {
-            for (int i = 0; i < 20; i++)
-            {
-                MinThresholdDD.Items.Add(new ComboBoxItem
-                {
-                    DataContext = i + 4,
-                    Name = i + 4.ToString(),
-                    Content = i + 4
+        //private void GenerateMinThresholdUI()
+        //{
+        //    for (int i = 0; i < 20; i++)
+        //    {
+        //        MinThresholdDD.Items.Add(new ComboBoxItem
+        //        {
+        //            DataContext = i + 4,
+        //            Name = i + 4.ToString(),
+        //            Content = i + 4
 
-                });
-            }
-            MinThresTB.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            MinThresholdDD.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            SetPropsRec.Visibility = Windows.UI.Xaml.Visibility.Visible;
+        //        });
+        //    }
+        //    MinThresTB.Visibility = Windows.UI.Xaml.Visibility.Visible;
+        //    MinThresholdDD.Visibility = Windows.UI.Xaml.Visibility.Visible;
+        //    SetPropsRec.Visibility = Windows.UI.Xaml.Visibility.Visible;
 
-        }
+        //}
 
         private void GenerateConfirmationButtonUI() {
             ConfirmationButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
-
         }
 
-        //private static int GetComboBoxData(this ComboBox data) {
-        //    var item = data.SelectedItem;
-        //    var dataItem = (ComboBoxItem)item;
-        //    return (int)dataItem.DataContext;
-        
-        //}
+ 
 
         private void SerializeFormData() {
 
-            var d = DeviceNameDD.SelectedItem;
-            var e = (ComboBoxItem)d;
+            var d = deviceListView.SelectedItem;
+            var e = (TextBlock)d;
 
-            var c = CounterToAddDD.SelectedItem;
-            var sc = (ComboBoxItem)c;
+            var c = counterListView.SelectedItem;
+            var sc = (TextBlock)c;
 
             var ri = ReadIntervalDD.SelectedItem;
             var ricb = (ComboBoxItem)ri;
@@ -157,11 +182,11 @@ namespace MetroMonitor.DesktopInterface
             var mint = MinThresholdDD.SelectedItem;
             var mintcb = (ComboBoxItem)mint;
 
-            AddedCounterNotificationTB.Text = sc.Content.ToString() + " Successfully Added to " + e.Content.ToString();
+            AddedCounterNotificationTB.Text = sc.Text.ToString() + " Successfully Added to " + e.Text.ToString();
 
             counterClient.AddMetricAsync(new CounterCreate
             {
-                DeviceName = e.Content.ToString(),
+                DeviceName = e.Text.ToString(),
                 DeviceId = (int)e.DataContext,
                 CounterDefinitifionId = (int)sc.DataContext,
 
@@ -178,20 +203,23 @@ namespace MetroMonitor.DesktopInterface
 
         private async void getCounterList() {
 
-            CounterToAddDD.Visibility = Windows.UI.Xaml.Visibility.Visible;
+          //  CounterToAddDD.Visibility = Windows.UI.Xaml.Visibility.Visible;
 
             var r = await counterClient.LoadAvailableCountersAsync();
+            var dataList = new List<TextBlock>();
 
             foreach (var result in r)
             {
-                CounterToAddDD.Items.Add(new ComboBoxItem
-                {
-                    DataContext = result.Key,
-                    Name = result.Key.ToString(),                    
-                    Content = result.Value
+                dataList.Add(new TextBlock{Text = result.Value.ToString(), DataContext = result.Key});
 
-                });
-            }
+                //CounterToAddDD.Items.Add(new ComboBoxItem
+                //{
+                //    DataContext = result.Key,
+                //    Name = result.Key.ToString(),                    
+                //    Content = result.Value
+
+                //});
+            }counterListView.ItemsSource = dataList;
 
         }
 
@@ -219,41 +247,39 @@ namespace MetroMonitor.DesktopInterface
         {
         }
 
-        private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-            GenerateReadIntervalUI();
-         
-        }
+        
                
         private void DeviceNameDD_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             getCounterList();
         }
 
-        private void ReadIntervalDD_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            GenerateLogIntervalUI();
-        }
-
-        private void LogIntervalDD_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-           GenerateMaxThresholUI();
-
-        }
-
-        private void MaxThresholdDD_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-          GenerateMinThresholdUI();
-        }
-
-        private void MinThresholdDD_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            GenerateConfirmationButtonUI();
-        }
-
+      
         private void ConfirmationButton_Click(object sender, RoutedEventArgs e)
         {
             SerializeFormData();
+        }
+
+        private void deviceListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            getCounterList();
+
+        }
+
+        private void counterListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (SetPropsRec.Visibility != Windows.UI.Xaml.Visibility.Visible) { SetPropsRec.Visibility = Windows.UI.Xaml.Visibility.Visible; }
+
+            GenerateComboBoxContent(ReadIntervalDD, RITB);
+
+            GenerateComboBoxContent(LogIntervalDD, LITB);
+
+            GenerateComboBoxContent(MaxThresholdDD, MTTB);
+
+            GenerateComboBoxContent(MinThresholdDD, MinThresTB);
+
+            GenerateConfirmationButtonUI();
+
         }
     }
 }

@@ -85,11 +85,18 @@ namespace MetroMonitor.DesktopInterface
             {
                 this.Frame.Navigate(typeof(ManageDevice), null);
             }
-            if (itemId == "Group-1-Item-4")
+            if (itemId == "Group-2-Item-1")
             {
                 this.Frame.Navigate(typeof(DeviceStatuses), null);
             }
-
+            if (itemId == "Group-2-Item-2")
+            {
+                this.Frame.Navigate(typeof(DeviceStatuses), null);
+            }
+            if (itemId == "Group-2-Item-2")
+            {
+                this.Frame.Navigate(typeof(DeviceStatuses), null);
+            }
            // this.Frame.Navigate(typeof(ItemDetailPage), itemId);
         }
 

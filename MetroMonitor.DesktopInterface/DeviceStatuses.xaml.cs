@@ -63,8 +63,12 @@ namespace MetroMonitor.DesktopInterface
                 //var tb = new TextBlock();
                 //tb.Text = data.DeviceName + data.Status;
                 //tb.DataContext = data.Id;
-                if (data.Status.ToString() == "Green") { colour.Color = Windows.UI.Colors.Green; }
-                if (data.Status.ToString() == "Yellow") { colour.Color = Windows.UI.Colors.Yellow; }
+                if (data.Status.ToString() == "Green") {
+                    colour.Color = Windows.UI.Colors.Green;
+                }
+                if (data.Status.ToString() == "Yellow") {
+                    colour.Color = Windows.UI.Colors.Yellow; 
+                }
                 var g = new Grid();
                 g.Children.Add(new Rectangle{Fill = colour});
                 g.Children.Add(new TextBlock{Text = data.DeviceName + data.Status,

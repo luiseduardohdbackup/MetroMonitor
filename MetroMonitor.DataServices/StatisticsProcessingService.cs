@@ -188,8 +188,8 @@ namespace MetroMonitor.DataServices
                 {
                    
                      var status = GetCurrentDeviceCounterStatus(counter);
-                    //if (status > overallStatus) 
-                   // overallStatus = status;
+                     if (status > overallStatus)
+                         overallStatus = status;
                 }
 
                 results.Add(new DeviceStatusResult
@@ -209,24 +209,27 @@ namespace MetroMonitor.DataServices
                 .Where(r => r.DeviceCounter.Id == counter.Id)
                 .Where(r => r.LogDate >= EntityFunctions.AddMinutes(DateTime.Now, -5))
                 .Select(r => r.AverageRead)
-                .FirstOrDefault();
+               .FirstOrDefault();
 
-            if (result <= counter.MaxThreshold)
+            if (result <= counter.MinThreshold)
             {
                 return StatusData.Status.Green;
             }
-            return result >= counter.MinThreshold ? StatusData.Status.Red : StatusData.Status.Yellow;
+            return result >= counter.MaxThreshold ? StatusData.Status.Red : StatusData.Status.Yellow;
         }
 
         public StatusData.Status GetCurrentStatus(int counterId) {
 
             var status = _context.Results
                                 .FirstOrDefault(c => c.DeviceCounter.Id == counterId);
-             
 
-            if (status.AverageRead >= status.DeviceCounter.MaxThreshold) return StatusData.Status.Red;
 
-            return StatusData.Status.Green;
+            if (status.AverageRead >= status.DeviceCounter.MaxThreshold) { return StatusData.Status.Red; }
+
+            if (status.AverageRead <= status.DeviceCounter.MinThreshold) { return StatusData.Status.Green; }
+
+
+            return StatusData.Status.Yellow;
         }
 
         private StatusData.Status GetStatus(double min, double max, double value, string system)

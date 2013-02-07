@@ -39,20 +39,20 @@
         <Rectangle x:Name="CounterAddedNotificationRec" Fill="#FF25B0CF" HorizontalAlignment="Left" Height="50" Margin="0,160,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="1356" Visibility="Collapsed"/>
 
         <TextBlock x:Name="AddedCounterNotificationTB" HorizontalAlignment="Left" Margin="565,181,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="222"/>
-        <ComboBox x:Name="CounterToAddDD" HorizontalAlignment="Left" Margin="1095,104,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged_1"/>
-        <ComboBox x:Name="DeviceNameDD" HorizontalAlignment="Left" Margin="146,87,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" SelectionChanged="DeviceNameDD_SelectionChanged"/>
 
-        <Rectangle x:Name="SetPropsRec" HorizontalAlignment="Left" Height="100" Margin="0,305,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="1366" Fill="#FF25B0CF" Visibility="Collapsed"/>
+        <Rectangle x:Name="SetPropsRec" HorizontalAlignment="Left" Height="130" Margin="0,345,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="1366" Fill="#FF25B0CF" Visibility="Collapsed"/>
 
-        <ComboBox x:Name="ReadIntervalDD" HorizontalAlignment="Left" Margin="146,345,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" SelectionChanged="ReadIntervalDD_SelectionChanged" Visibility="Collapsed"/>
-        <ComboBox x:Name="LogIntervalDD" HorizontalAlignment="Left" Margin="450,345,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" SelectionChanged="LogIntervalDD_SelectionChanged" Visibility="Collapsed"/>
-        <ComboBox x:Name="MaxThresholdDD" HorizontalAlignment="Left" Margin="775,345,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" SelectionChanged="MaxThresholdDD_SelectionChanged" Visibility="Collapsed"/>
-        <ComboBox x:Name="MinThresholdDD" HorizontalAlignment="Left" Margin="1095,345,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" RenderTransformOrigin="4.6,1.125" SelectionChanged="MinThresholdDD_SelectionChanged" Visibility="Collapsed"/>
-        <Button x:Name="ConfirmationButton" Content="Add Metric" HorizontalAlignment="Left" Margin="565,445,0,0" Grid.Row="1" VerticalAlignment="Top" Height="45" Width="245" RenderTransformOrigin="0.247,0.174" Click="ConfirmationButton_Click" Visibility="Collapsed"/>
-        <TextBlock x:Name="RITB" HorizontalAlignment="Left" Margin="177,305,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Read Interval" VerticalAlignment="Top" Visibility="Collapsed"/>
-        <TextBlock x:Name="LITB" HorizontalAlignment="Left" Margin="491,305,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Log Interval" VerticalAlignment="Top" Visibility="Collapsed"/>
-        <TextBlock x:Name="MTTB" HorizontalAlignment="Left" Margin="786,305,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Maximum Threshold" VerticalAlignment="Top" Visibility="Collapsed"/>
-        <TextBlock x:Name="MinThresTB" HorizontalAlignment="Left" Margin="1109,305,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Minimum Threshold" VerticalAlignment="Top" Visibility="Collapsed"/>
+        <ComboBox x:Name="ReadIntervalDD" HorizontalAlignment="Left" Margin="90,405,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150"  Visibility="Collapsed"/>
+        <ComboBox x:Name="LogIntervalDD" HorizontalAlignment="Left" Margin="405,405,0,0" Grid.Row="1" VerticalAlignment="Top" Width="155" Visibility="Collapsed"/>
+        <ComboBox x:Name="MaxThresholdDD" HorizontalAlignment="Left" Margin="805,410,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150"  Visibility="Collapsed"/>
+        <ComboBox x:Name="MinThresholdDD" HorizontalAlignment="Left" Margin="1130,410,0,0" Grid.Row="1" VerticalAlignment="Top" Width="151" RenderTransformOrigin="4.6,1.125" Visibility="Collapsed"/>
+        <Button x:Name="ConfirmationButton" Content="Add Metric" HorizontalAlignment="Left" Margin="565,500,0,0" Grid.Row="1" VerticalAlignment="Top" Height="45" Width="245" RenderTransformOrigin="0.247,0.174" Click="ConfirmationButton_Click" Visibility="Collapsed"/>
+        <TextBlock x:Name="RITB" HorizontalAlignment="Left" Margin="130,364,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Read Interval" VerticalAlignment="Top" Visibility="Collapsed"/>
+        <TextBlock x:Name="LITB" HorizontalAlignment="Left" Margin="460,364,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Log Interval" VerticalAlignment="Top" Visibility="Collapsed"/>
+        <TextBlock x:Name="MTTB" HorizontalAlignment="Left" Margin="835,364,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Maximum Threshold" VerticalAlignment="Top" Visibility="Collapsed"/>
+        <TextBlock x:Name="MinThresTB" HorizontalAlignment="Left" Margin="1155,364,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Minimum Threshold" VerticalAlignment="Top" Visibility="Collapsed"/>
+        <ListView x:Name="deviceListView" HorizontalAlignment="Left" Height="310" Margin="90,30,0,0" Grid.Row="1" VerticalAlignment="Top" Width="310" SelectionChanged="deviceListView_SelectionChanged"/>
+        <ListView x:Name="counterListView" HorizontalAlignment="Left" Height="310" Margin="975,30,0,0" VerticalAlignment="Top" Width="306" SelectionChanged="counterListView_SelectionChanged" Grid.Row="1"/>
 
         <VisualStateManager.VisualStateGroups>
 
