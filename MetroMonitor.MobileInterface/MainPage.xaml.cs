@@ -13,13 +13,50 @@ namespace MetroMonitor.MobileInterface
 {
     public partial class MainPage : PhoneApplicationPage
     {
+        
+        MobileDataRepo.DataRepositoryClient dataClient = new MobileDataRepo.DataRepositoryClient();
+        
+        
         // Constructor
         public MainPage()
         {
             InitializeComponent();
+            GenerateData();
 
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
+        }
+
+        private void GenerateData()
+        {
+            dataClient.GetAvailableDevicesCompleted += dataClient_GetAvailableDevicesCompleted;
+
+            dataClient.GetAvailableDevicesAsync();
+
+     
+
+            //var data = dataClient.GetAvailableDevicesAsync();
+
+
+        }
+
+        void dataClient_GetAvailableDevicesCompleted(object sender, MobileDataRepo.GetAvailableDevicesCompletedEventArgs e)
+        {
+            devicestextbox.Text += "hit method";
+            foreach (var data in e.Result)
+            {
+                devicestextbox.Text += data.Value.ToString();
+            }
+        }
+
+        void dataClient_GetAvailableCountersForDeviceCompleted(object sender, MobileDataRepo.GetAvailableCountersForDeviceCompletedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/HomePage.xaml", UriKind.Relative));
         }
 
         // Sample code for building a localized ApplicationBar

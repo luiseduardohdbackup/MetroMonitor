@@ -22,24 +22,94 @@
                     maxReceivedMessageSize="2147483647">
                     <security mode="None" />
                 </binding>
+                <binding name="BasicHttpBinding_IDataRepository1" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IDeviceContracts1" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_ICounterContracts1" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IGraphContract1" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IStatisticsContract1" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IDataRepository2" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IDeviceContracts2" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_ICounterContracts2" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IGraphContract2" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IStatisticsContract2" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
             </basicHttpBinding>
         </bindings>
         <client>
             <endpoint address="http://localhost:3460/DataRepository.svc"
                 binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IDataRepository"
-                contract="MobileWebRepository.IDataRepository" name="BasicHttpBinding_IDataRepository" />
+                contract="DataRepositoryService.IDataRepository" name="BasicHttpBinding_IDataRepository" />
             <endpoint address="http://localhost:3460/DataRepository.svc"
                 binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IDeviceContracts"
-                contract="MobileWebRepository.IDeviceContracts" name="BasicHttpBinding_IDeviceContracts" />
+                contract="DataRepositoryService.IDeviceContracts" name="BasicHttpBinding_IDeviceContracts" />
             <endpoint address="http://localhost:3460/DataRepository.svc"
                 binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ICounterContracts"
-                contract="MobileWebRepository.ICounterContracts" name="BasicHttpBinding_ICounterContracts" />
+                contract="DataRepositoryService.ICounterContracts" name="BasicHttpBinding_ICounterContracts" />
             <endpoint address="http://localhost:3460/DataRepository.svc"
                 binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IGraphContract"
-                contract="MobileWebRepository.IGraphContract" name="BasicHttpBinding_IGraphContract" />
+                contract="DataRepositoryService.IGraphContract" name="BasicHttpBinding_IGraphContract" />
             <endpoint address="http://localhost:3460/DataRepository.svc"
                 binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IStatisticsContract"
-                contract="MobileWebRepository.IStatisticsContract" name="BasicHttpBinding_IStatisticsContract" />
+                contract="DataRepositoryService.IStatisticsContract" name="BasicHttpBinding_IStatisticsContract" />
+            <endpoint address="http://localhost:3460/DataRepository.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IDataRepository1"
+                contract="DataRepositoryService.IDataRepository" name="BasicHttpBinding_IDataRepository1" />
+            <endpoint address="http://localhost:3460/DataRepository.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IDeviceContracts1"
+                contract="DataRepositoryService.IDeviceContracts" name="BasicHttpBinding_IDeviceContracts1" />
+            <endpoint address="http://localhost:3460/DataRepository.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ICounterContracts1"
+                contract="DataRepositoryService.ICounterContracts" name="BasicHttpBinding_ICounterContracts1" />
+            <endpoint address="http://localhost:3460/DataRepository.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IGraphContract1"
+                contract="DataRepositoryService.IGraphContract" name="BasicHttpBinding_IGraphContract1" />
+            <endpoint address="http://localhost:3460/DataRepository.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IStatisticsContract1"
+                contract="DataRepositoryService.IStatisticsContract" name="BasicHttpBinding_IStatisticsContract1" />
+            <endpoint address="http://192.168.1.129:8080/DataRepository.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IDataRepository2"
+                contract="MobileDataRepo.IDataRepository" name="BasicHttpBinding_IDataRepository2" />
+            <endpoint address="http://192.168.1.129:8080/DataRepository.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IDeviceContracts2"
+                contract="MobileDataRepo.IDeviceContracts" name="BasicHttpBinding_IDeviceContracts2" />
+            <endpoint address="http://192.168.1.129:8080/DataRepository.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ICounterContracts2"
+                contract="MobileDataRepo.ICounterContracts" name="BasicHttpBinding_ICounterContracts2" />
+            <endpoint address="http://192.168.1.129:8080/DataRepository.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IGraphContract2"
+                contract="MobileDataRepo.IGraphContract" name="BasicHttpBinding_IGraphContract2" />
+            <endpoint address="http://192.168.1.129:8080/DataRepository.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IStatisticsContract2"
+                contract="MobileDataRepo.IStatisticsContract" name="BasicHttpBinding_IStatisticsContract2" />
         </client>
     </system.serviceModel>
 </configuration>

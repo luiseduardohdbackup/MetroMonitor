@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Counters" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Counters" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://192.168.1.129:8080/DataRepository.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Devices" />
+  <xs:complexType name="CounterCreate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CounterDefinitifionId" type="xs:int" />
+      <xs:element minOccurs="0" name="DeviceId" type="xs:int" />
+      <xs:element minOccurs="0" name="DeviceName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Metric" nillable="true" type="tns:CounterBase" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CounterCreate" nillable="true" type="tns:CounterCreate" />
+  <xs:complexType name="CounterBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LogInterval" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxThreshold" type="xs:int" />
+      <xs:element minOccurs="0" name="MinThreshold" type="xs:int" />
+      <xs:element minOccurs="0" name="ReadInterval" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CounterBase" nillable="true" type="tns:CounterBase" />
+  <xs:complexType name="CounterDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Counter" nillable="true" type="tns:CounterBase" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Devices" minOccurs="0" name="Device" nillable="true" type="q1:DeviceDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CounterDetails" nillable="true" type="tns:CounterDetails" />
+  <xs:complexType name="ArrayOfCounterDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CounterDetails" nillable="true" type="tns:CounterDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCounterDetails" nillable="true" type="tns:ArrayOfCounterDetails" />
+</xs:schema>

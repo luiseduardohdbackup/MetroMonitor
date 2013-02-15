@@ -19,7 +19,8 @@
         <phone:Pivot Title="Metro Monitor">
             <!--Pivot item one-->
             <phone:PivotItem Header="Status">
-                <Button Content="Button" HorizontalAlignment="Left" Height="77" VerticalAlignment="Top" Width="456"/>
+                <Grid x:Name="statusList" HorizontalAlignment="Left" Height="615" VerticalAlignment="Top" Width="456">
+                    </Grid>
             </phone:PivotItem>
 
             <!--Pivot item two-->
