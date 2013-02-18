@@ -32,7 +32,7 @@ namespace MetroMonitor.DataServices
                     XYAxisData = new Dictionary<CounterDetails,IList<Result>>()
              };
 
-             var counters = (from c in _context.DeviceCounters where c.Device.Id == deviceId select c).ToList();
+             var counters = (from c in _context.DeviceCounters where c.Device.Id == deviceId where c.Deleted != 1 select c).ToList();
 
              foreach(var counter in counters){
 

@@ -36,12 +36,15 @@ namespace MetroMonitor.MobileInterface
         {
             var g = new List<Grid>();
 
+            var deviceTextBlock = new List<TextBlock>();
+
           
            
             var colour = new SolidColorBrush(Colors.Red);
 
             foreach (var res in e.Result)
             {
+               
                 if (res.Status.ToString() == "Green")
                 {
                     colour.Color = Colors.Green;
@@ -49,28 +52,64 @@ namespace MetroMonitor.MobileInterface
                 if (res.Status.ToString() == "Yellow")
                 {
                     colour.Color = Colors.Yellow;
-                }   
-
-                var grid = new Grid();
-                grid.Children.Add(new Rectangle { Fill = colour });
-                grid.Children.Add(new TextBlock
+                }
+                var text = new TextBlock
                 {
                     Text = res.DeviceName + res.Status,
                     DataContext = res.Id,
                     
+                    Padding = new System.Windows.Thickness { Top = 10 }
+
+                };
+                text.Tap+=text_Tap;
+
+                deviceListStackPannel.Children.Add(text);
+
+               
+                deviceTextBlock.Add(new TextBlock
+                {
+                    Text = res.DeviceName + res.Status,
+                   
+                    
+                    DataContext = res.Id,
+                    Padding = new System.Windows.Thickness{Top = 10}
+                    
                 });
 
-                //listSource.Add(tb);
-                g.Add(grid);
-                // data.
+                
+                
+                
             }
            // statuslistSelector.ItemsSource = g;
+        }
+
+        void text_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            TextBlock t = 
+            MessageBox.Show(
         }
 
         private void GenertateStatusList()
         {
 
            
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/ChartsOutput.xaml", UriKind.Relative));
+
+        }
+
+        private void PivotItem_DoubleTap_1(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+
+        }
+
+        private void deviceListStackPannel_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            
 
         }
 
