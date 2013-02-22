@@ -370,6 +370,7 @@ namespace MetroMonitor.DesktopInterface.Common
             var frameState = SuspensionManager.SessionStateForFrame(this.Frame);
             var pageState = new Dictionary<String, Object>();
             this.SaveState(pageState);
+
             frameState[_pageKey] = pageState;
         }
 

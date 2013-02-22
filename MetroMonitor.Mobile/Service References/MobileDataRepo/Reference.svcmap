@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="679c9d22-2a2d-416c-a676-889e63070935" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://192.168.1.129:8080/DataRepository.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DataRepository.wsdl" MetadataType="Wsdl" ID="f6daea9e-3dbf-461d-8480-c8bc0e83852f" SourceId="1" SourceUrl="http://192.168.1.129:8080/DataRepository.svc?wsdl" />
+    <MetadataFile FileName="DataRepository.xsd" MetadataType="Schema" ID="c70941a6-26eb-4b48-99df-bda3d3ae380a" SourceId="1" SourceUrl="http://192.168.1.129:8080/DataRepository.svc?xsd=xsd2" />
+    <MetadataFile FileName="DataRepository1.xsd" MetadataType="Schema" ID="b73306a2-007d-496f-954a-2cc0fc0ff606" SourceId="1" SourceUrl="http://192.168.1.129:8080/DataRepository.svc?xsd=xsd1" />
+    <MetadataFile FileName="DataRepository.disco" MetadataType="Disco" ID="5c80d9de-ad89-4d84-b626-48483aa06500" SourceId="1" SourceUrl="http://192.168.1.129:8080/DataRepository.svc?disco" />
+    <MetadataFile FileName="DataRepository2.xsd" MetadataType="Schema" ID="53e39f3a-37f7-4cbb-a4c9-9f7fab7419fe" SourceId="1" SourceUrl="http://192.168.1.129:8080/DataRepository.svc?xsd=xsd7" />
+    <MetadataFile FileName="DataRepository3.xsd" MetadataType="Schema" ID="2ab5154a-4210-4844-8775-ccfb911fb00d" SourceId="1" SourceUrl="http://192.168.1.129:8080/DataRepository.svc?xsd=xsd6" />
+    <MetadataFile FileName="DataRepository4.xsd" MetadataType="Schema" ID="700fc423-f3b9-49ea-9f33-851a76261437" SourceId="1" SourceUrl="http://192.168.1.129:8080/DataRepository.svc?xsd=xsd5" />
+    <MetadataFile FileName="DataRepository5.xsd" MetadataType="Schema" ID="b3e0d9e4-e2ca-4b56-a64c-c852f1226795" SourceId="1" SourceUrl="http://192.168.1.129:8080/DataRepository.svc?xsd=xsd4" />
+    <MetadataFile FileName="DataRepository6.xsd" MetadataType="Schema" ID="afb28a38-baa3-4af2-8ee2-edf2d48e75e4" SourceId="1" SourceUrl="http://192.168.1.129:8080/DataRepository.svc?xsd=xsd3" />
+    <MetadataFile FileName="DataRepository7.xsd" MetadataType="Schema" ID="48293499-b346-47a6-a265-3bedab8eeee0" SourceId="1" SourceUrl="http://192.168.1.129:8080/DataRepository.svc?xsd=xsd8" />
+    <MetadataFile FileName="DataRepository8.xsd" MetadataType="Schema" ID="8f7a1f4e-dbb9-4fe8-9170-4a75b63dbdb5" SourceId="1" SourceUrl="http://192.168.1.129:8080/DataRepository.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

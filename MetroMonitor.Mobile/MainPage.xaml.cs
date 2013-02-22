@@ -37,7 +37,8 @@ namespace MetroMonitor.Mobile
 
         private void FirstListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            this.NavigationService.Navigate(new System.Uri(@"/Charts.xaml", UriKind.RelativeOrAbsolute));
+           
+            this.NavigationService.Navigate(new System.Uri(@"/HomePage.xaml", UriKind.RelativeOrAbsolute));
         }
     }
 }

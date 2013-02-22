@@ -16,6 +16,7 @@ namespace MetroMonitor.DataServices
         //GraphMetaData GetGraphMetaDataView(int id);
         GraphData GetSystemOverviewGraph(int deviceId);
         List<Result> GetResultSet(int deviceId);
+        GraphData GetGraphDataForCounter(int deviceId, int counterID);
      
     }
 }

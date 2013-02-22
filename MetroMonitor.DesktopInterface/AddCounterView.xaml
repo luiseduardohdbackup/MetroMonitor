@@ -40,7 +40,7 @@
 
         <TextBlock x:Name="AddedCounterNotificationTB" HorizontalAlignment="Left" Margin="565,181,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="222"/>
 
-        <Rectangle x:Name="SetPropsRec" HorizontalAlignment="Left" Height="130" Margin="0,345,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="1366" Fill="#FF25B0CF" Visibility="Collapsed"/>
+        <Rectangle x:Name="SetPropsRec" HorizontalAlignment="Left" Height="130" Margin="0,345,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="1366" Visibility="Collapsed"/>
 
         <ComboBox x:Name="ReadIntervalDD" HorizontalAlignment="Left" Margin="90,405,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150"  Visibility="Collapsed"/>
         <ComboBox x:Name="LogIntervalDD" HorizontalAlignment="Left" Margin="405,405,0,0" Grid.Row="1" VerticalAlignment="Top" Width="155" Visibility="Collapsed"/>

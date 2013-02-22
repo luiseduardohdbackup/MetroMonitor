@@ -15,9 +15,11 @@ namespace MetroMonitor.WebService
     [ServiceContract]
     public interface IGraphContract
     {
-        //TODO AND THIS PILE OF FUCK
         [OperationContract]
         GraphDataContract MetricsOverveiwForDevice(int deviceId);
+
+        [OperationContract]
+        GraphDataContract MetricsOverveiwForGraphForCounter(int deviceId, int counterId);
 
 
         [OperationContract]

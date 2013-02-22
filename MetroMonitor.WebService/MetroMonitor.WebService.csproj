@@ -78,6 +78,7 @@
     <Compile Include="IDeviceContracts.cs" />
     <Compile Include="IGraphContract.cs" />
     <Compile Include="IStatisticsContract.cs" />
+    <Compile Include="IToastNotification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

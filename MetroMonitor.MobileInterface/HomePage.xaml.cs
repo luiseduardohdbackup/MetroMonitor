@@ -85,8 +85,8 @@ namespace MetroMonitor.MobileInterface
 
         void text_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            TextBlock t = 
-            MessageBox.Show(
+            //TextBlock t = 
+            //MessageBox.Show(
         }
 
         private void GenertateStatusList()

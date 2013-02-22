@@ -64,7 +64,7 @@ namespace MetroMonitor.DataServices
 
         public Dictionary<int, string> GetAvailableDevice() {
 
-            var deviceList = (from d in _context.Devices select d).ToList();
+            var deviceList = (from d in _context.Devices  where d.Deleted != 1 select d).ToList();
 
             var resultDictionary = new Dictionary<int, string>();
 
@@ -79,7 +79,7 @@ namespace MetroMonitor.DataServices
         public bool DeleteDevice(int id)
         {
             Device device = _context.Devices.FirstOrDefault(d => d.Id == id);
-            if (device == null) return false; //throw exception 
+            if (device == null) { return false; }
 
             device.Deleted = 1;
             _context.SaveChanges();

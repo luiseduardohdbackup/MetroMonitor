@@ -129,10 +129,12 @@ namespace MetroMonitor.DesktopInterface
 
                 });
             }
-            
 
-            dropDown.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            textblock.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            if (dropDown.Visibility != Windows.UI.Xaml.Visibility.Visible)
+            {
+                dropDown.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                textblock.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            }
 
 
 

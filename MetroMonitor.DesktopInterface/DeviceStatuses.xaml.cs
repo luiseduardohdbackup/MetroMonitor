@@ -36,8 +36,6 @@ namespace MetroMonitor.DesktopInterface
 
         MetroMonitorWebRepository.CounterContractsClient counterClient = new MetroMonitorWebRepository.CounterContractsClient();
 
-
-
         MetroMonitorWebRepository.StatisticsContractClient StatisticsClient = new MetroMonitorWebRepository.StatisticsContractClient();
 
         public DeviceStatuses()
@@ -55,11 +53,9 @@ namespace MetroMonitor.DesktopInterface
             //var listSource = new List<TextBlock>();
             //var rectang = new List<Rectangle>();
            
-            var colour = new SolidColorBrush(Windows.UI.Colors.Red);
-
-         
             
             foreach (var data in statuses) {
+                var colour = new SolidColorBrush(Windows.UI.Colors.Red);
                 //var tb = new TextBlock();
                 //tb.Text = data.DeviceName + data.Status;
                 //tb.DataContext = data.Id;

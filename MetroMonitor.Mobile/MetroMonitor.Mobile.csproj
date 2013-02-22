@@ -48,9 +48,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Coding4Fun.Toolkit.Controls">
+      <HintPath>.\Coding4Fun.Toolkit.Controls.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Controls" />
     <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows" />
     <Reference Include="system" />
     <Reference Include="System.Core" />
@@ -71,10 +76,30 @@
     <Compile Include="Charts.xaml.cs">
       <DependentUpon>Charts.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CounterSelect.xaml.cs">
+      <DependentUpon>CounterSelect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CounterStatus.xaml.cs">
+      <DependentUpon>CounterStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceSelect.xaml.cs">
+      <DependentUpon>DeviceSelect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceStatus.xaml.cs">
+      <DependentUpon>DeviceStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\MobileDataRepo\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\ItemViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
   </ItemGroup>
@@ -84,6 +109,26 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="Charts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CounterSelect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CounterStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeviceSelect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeviceStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -99,6 +144,59 @@
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml" />
+    <None Include="Service References\MobileDataRepo\DataRepository.wsdl" />
+    <None Include="Service References\MobileDataRepo\DataRepository.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MobileDataRepo\DataRepository1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MobileDataRepo\DataRepository2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MobileDataRepo\DataRepository3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MobileDataRepo\DataRepository4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MobileDataRepo\DataRepository5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MobileDataRepo\DataRepository6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MobileDataRepo\DataRepository7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MobileDataRepo\DataRepository8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MobileDataRepo\MetroMonitor.Mobile.MobileDataRepo.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobileDataRepo\MetroMonitor.Mobile.MobileDataRepo.CounterDataContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobileDataRepo\MetroMonitor.Mobile.MobileDataRepo.DeviceDataContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobileDataRepo\MetroMonitor.Mobile.MobileDataRepo.DeviceMetricStatusResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobileDataRepo\MetroMonitor.Mobile.MobileDataRepo.DeviceStatusResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobileDataRepo\MetroMonitor.Mobile.MobileDataRepo.GraphDataContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobileDataRepo\MetroMonitor.Mobile.MobileDataRepo.MetricDetailsData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MobileDataRepo\MetroMonitor.Mobile.MobileDataRepo.StatisticsDataContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ApplicationIcon.png">
@@ -107,7 +205,20 @@
     <Content Include="Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Service References\MobileDataRepo\DataRepository.disco" />
+    <None Include="Service References\MobileDataRepo\configuration91.svcinfo" />
+    <None Include="Service References\MobileDataRepo\configuration.svcinfo" />
+    <None Include="Service References\MobileDataRepo\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="SplashScreenImage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\MobileDataRepo\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />

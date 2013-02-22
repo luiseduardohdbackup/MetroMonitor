@@ -26,6 +26,53 @@ namespace MetroMonitor.DataServices
             _context = context;
         }
 
+         public GraphData GetGraphDataForCounter(int deviceId, int counterID) {
+
+             var AxisData = new GraphData
+             {
+                 XYAxisData = new Dictionary<CounterDetails, IList<Result>>()
+             };
+
+             var counters = (from c in _context.DeviceCounters where c.Device.Id == deviceId where c.Deleted != 1 where c.Id == counterID select c).ToList();
+
+             foreach (var counter in counters)
+             {
+
+                 var key = new CounterDetails
+                 {
+
+                     Counter = new CounterBase
+                     {
+                         Description = counter.GetDescription(),
+                         LogInterval = counter.LogInterval,
+                         MaxThreshold = (int)counter.MaxThreshold,
+                         MinThreshold = (int)counter.MinThreshold,
+                         ReadInterval = counter.ReadInterval
+                     }
+                 };
+                 var stat = _context.Results
+                .Where(c => c.DeviceCounter.Id == counter.Id)
+                .Where(t => t.LogDate <= DateTime.Now && t.LogDate >= EntityFunctions.AddMinutes(DateTime.Now, -2))
+                .FirstOrDefault();
+
+                 var values = _context.Results
+                     .Where(c => c.DeviceCounter.Id == counter.Id)
+                     .Where(t => t.LogDate <= DateTime.Now && t.LogDate >= EntityFunctions.AddMinutes(DateTime.Now, -2))
+                     .ToList();
+
+
+                 AxisData.XYAxisData.Add(key, values);
+
+
+
+             }
+
+             return AxisData;
+         
+         
+         }
+
+
          public GraphData GetSystemOverviewGraph(int deviceId) {
             
              var AxisData = new GraphData{

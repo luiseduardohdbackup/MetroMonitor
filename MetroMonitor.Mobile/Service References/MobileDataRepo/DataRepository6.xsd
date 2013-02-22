@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MetroMonitor.WebService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://192.168.1.129:8080/DataRepository.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Results" />
+  <xs:import schemaLocation="http://192.168.1.129:8080/DataRepository.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="CompositeType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BoolValue" type="xs:boolean" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MetroMonitor.ViewModels.Results" minOccurs="0" name="ResultValue" nillable="true" type="q1:ResultsData" />
+      <xs:element minOccurs="0" name="StringValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CompositeType" nillable="true" type="tns:CompositeType" />
+  <xs:complexType name="GraphDataContract">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PlottingData" nillable="true" type="q2:ArrayOfKeyValueOfGraphCounterDataContractArrayOfResultsDataContractRsuarXAy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GraphDataContract" nillable="true" type="tns:GraphDataContract" />
+</xs:schema>

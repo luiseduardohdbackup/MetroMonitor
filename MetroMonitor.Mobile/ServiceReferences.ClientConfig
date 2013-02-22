@@ -1,0 +1,45 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_IDataRepository" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IDeviceContracts" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_ICounterContracts" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IGraphContract" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IStatisticsContract" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://192.168.1.129:8080/DataRepository.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IDataRepository"
+                contract="MobileDataRepo.IDataRepository" name="BasicHttpBinding_IDataRepository" />
+            <endpoint address="http://192.168.1.129:8080/DataRepository.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IDeviceContracts"
+                contract="MobileDataRepo.IDeviceContracts" name="BasicHttpBinding_IDeviceContracts" />
+            <endpoint address="http://192.168.1.129:8080/DataRepository.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ICounterContracts"
+                contract="MobileDataRepo.ICounterContracts" name="BasicHttpBinding_ICounterContracts" />
+            <endpoint address="http://192.168.1.129:8080/DataRepository.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IGraphContract"
+                contract="MobileDataRepo.IGraphContract" name="BasicHttpBinding_IGraphContract" />
+            <endpoint address="http://192.168.1.129:8080/DataRepository.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IStatisticsContract"
+                contract="MobileDataRepo.IStatisticsContract" name="BasicHttpBinding_IStatisticsContract" />
+        </client>
+    </system.serviceModel>
+</configuration>

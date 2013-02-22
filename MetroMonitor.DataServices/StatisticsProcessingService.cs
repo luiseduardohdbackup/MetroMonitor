@@ -181,7 +181,8 @@ namespace MetroMonitor.DataServices
         {
           
             var results = new List<DeviceStatusResult>();
-            foreach (var server in _context.Devices.ToList())
+            var d = (from dev in _context.Devices where dev.Deleted != 1 select dev).ToList();
+            foreach (var server in d)
             {
                 var overallStatus = StatusData.Status.Green;
                 foreach (var counter in server.Counters.Where(c => c.Deleted != 1))

@@ -7,12 +7,17 @@ using MetroMonitor.ViewModels.Devices;
 using MetroMonitor.ViewModels.Results;
 using MetroMonitor.ViewModels.Counters;
 using MetroMonitor.WebService.DataMembers;
+using System.ServiceModel.Web;
+using System.ServiceModel;
+using System.Net;
+using System.Text;
+using System.IO;
 
 namespace MetroMonitor.WebService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "DataRepository" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select DataRepository.svc or DataRepository.svc.cs at the Solution Explorer and start debugging.
-    public class DataRepository : IDataRepository, IDeviceContracts, ICounterContracts, IGraphContract, IStatisticsContract
+    public class DataRepository : IDataRepository, IDeviceContracts, ICounterContracts, IGraphContract, IStatisticsContract, IToastNotification
     {
         private IDataAccessService _dataAccessService;
         private IDataRepresentationService _dataRepresentationService;
@@ -33,7 +38,7 @@ namespace MetroMonitor.WebService
 
 
         public Dictionary<int, string> GetAvailableDevices() {
-
+            this.SendNotification("Device Status");
             return _dataAccessService.GetAvailableDevice();
         }
 
@@ -159,8 +164,6 @@ namespace MetroMonitor.WebService
         public bool AddMetric(CounterCreate counter)
         {
 
-            //looked into this, in msd there is a types screen, bascially you will need to allow the 
-            //user to select the counter and instance before and sen send the counter definisionID down
             return _dataAccessService.AddNewMetric(counter);
         }
 
@@ -276,11 +279,87 @@ namespace MetroMonitor.WebService
         
         }
 
+        public GraphDataContract MetricsOverveiwForGraphForCounter(int deviceId, int counterId) {
+            var graph = _dataRepresentationService.GetGraphDataForCounter(deviceId, counterId);
+
+            var gdc = new GraphDataContract()
+            {
+                PlottingData = new Dictionary<GraphCounterDataContract, List<ResultsDataContract>>()
+            };
+
+            foreach (var key in graph.XYAxisData)
+            {
+
+                var CounterKey = new GraphCounterDataContract
+                {
+                    CounterDescription = key.Key.Counter.Description,
+                    InstanceName = string.Empty
+                };
+
+                var ResultsList = new List<ResultsDataContract>();
+
+                foreach (var result in key.Value)
+                {
+                    var ResultValue = new ResultsDataContract
+                    {
+                        AverageRead = result.AverageRead,
+                        LogDate = result.LogDate,
+                        MaximumRead = result.MaximumRead,
+                        MinimumRead = result.MinimumRead
+                    };
+                    ResultsList.Add(ResultValue);
+
+                }
+                gdc.PlottingData.Add(CounterKey, ResultsList);
+            }
+
+            return gdc;
+        }
+
+        public string SendNotification(string message) {
+
+            string channelURI = "http://db3.notify.live.net/throttledthirdparty/01.00/AAFyIgcYCz-fRKTCABXOfz8NAgAAAAADAQAAAAQUZm52OkJCMjg1QTg1QkZDMkUxREQ";
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(channelURI);
+            request.Method = "POST";
+            request.ContentType = "text/xml";
+            request.Headers.Add("X-NotificationClass", "2");
+            request.Headers.Add("X-WindowsPhone-Target", "toast");
+ 
+            string notificationData = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+            "<wp:Notification xmlns:wp=\"WPNotification\">" +
+            "<wp:Toast>" +
+            "<wp:Text1>WP7 TOAST</wp:Text1>" +
+            "<wp:Text2>"+ message + "</wp:Text2>" +
+            "</wp:Toast>" +
+            "</wp:Notification>";
+ 
+            byte[] contents = Encoding.Default.GetBytes(notificationData);
+ 
+            request.ContentLength = contents.Length;
+ 
+            using (Stream requestStream = request.GetRequestStream())
+            {
+            requestStream.Write(contents, 0, contents.Length);
+            }
+ 
+            string notificationStatus;
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            {
+            notificationStatus = response.Headers["X-NotificationStatus"];
+            }
+ 
+            return notificationStatus;
+            }
+        
+        }
+
+
         #endregion
     }
      
 
-    }
+    
 
 
 
