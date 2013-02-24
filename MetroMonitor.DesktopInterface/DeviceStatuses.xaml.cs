@@ -30,6 +30,8 @@ namespace MetroMonitor.DesktopInterface
             public SolidColorBrush Status { get; set; }
         }
 
+        private int deviceID;
+        
         MetroMonitorWebRepository.DataRepositoryClient dataClient = new MetroMonitorWebRepository.DataRepositoryClient();
 
         MetroMonitorWebRepository.DeviceContractsClient deviceClient = new MetroMonitorWebRepository.DeviceContractsClient();
@@ -66,11 +68,15 @@ namespace MetroMonitor.DesktopInterface
                     colour.Color = Windows.UI.Colors.Yellow; 
                 }
                 var g = new Grid();
-                g.Children.Add(new Rectangle{Fill = colour});
-                g.Children.Add(new TextBlock{Text = data.DeviceName + data.Status,
-                    DataContext = data.Id});
+                
+                g.Children.Add(new Rectangle{Fill = colour,
+                Stretch = Stretch.Fill});
+                g.Children.Add(new TextBlock{Text = data.DeviceName,
+                DataContext = data.Id,
+                Margin = new Thickness(160,12,0,0),
+                Height = 50,
+                Width = 400});
 
-                //listSource.Add(tb);
                 grid.Add(g);
             
             }
@@ -79,18 +85,9 @@ namespace MetroMonitor.DesktopInterface
          //   DSList.ItemsSource = listSource;
         }
 
-        private async void loadCounterStatusesFromDevice(int deviceId) {
-            //var listview = new ListView();
-            
-            //foreach(var d in data.Statistics){
-            //    counterStatusesTB.Text += d.CounterName + " ";
-
-            //    foreach (var stats in d.TimeFrameResult) {
-
-            //        counterStatusesTB.Text += stats.Status.ToString();
-            //    }
-            
-            //}
+        private async void loadCounterStatusesFromDevice(int deviceId)
+        {
+           
             var data = await StatisticsClient.GetCounterSummaryStatusAsync(deviceId);
 
             var grid = new List<Grid>();
@@ -99,30 +96,117 @@ namespace MetroMonitor.DesktopInterface
 
             foreach (var d in data.Statistics)
             {
+                    if (d.TimeFrameResult.ElementAt(0).Status.ToString() == "Green") { colour.Color = Windows.UI.Colors.Green; }
 
-                foreach (var stats in d.TimeFrameResult)
-                {
-                    
-                if (stats.Status.ToString() == "Green") { colour.Color = Windows.UI.Colors.Green; }
+                    if (d.TimeFrameResult.ElementAt(0).Status.ToString() == "Yellow") { colour.Color = Windows.UI.Colors.Yellow; }
 
-                if (stats.Status.ToString() == "Yellow") { colour.Color = Windows.UI.Colors.Yellow; }
+                    var g = new Grid();
 
-                var g = new Grid();
-                g.Children.Add(new Rectangle { Fill = colour });
-                g.Children.Add(new TextBlock
-                {
-                    Text = d.CounterName.ToString(),
-                    DataContext = d.Id.ToString()
-                });
+                    g.Children.Add(new Rectangle { Fill = colour });
+                    g.Children.Add(new TextBlock
+                    {
+                        Text = d.CounterName.ToString(),
+                        DataContext = d.Id.ToString(),
+                        Margin = new Thickness(80, 12, 0, 0),
+                        Height = 50,
+                        Width = 400
+                    });
 
-                grid.Add(g);
+                    grid.Add(g);
 
-                    counterStatusesTB.Text += stats.Status.ToString();
-                }
-            }
+                  //  counterStatusesTB.Text += d.TimeFrameResult.ElementAt(0).Status.ToString();
+            
+            }   CSList.ItemsSource = grid;
+        }
 
-            CSList.ItemsSource = grid;
-         
+        private async void GenerateCurrentTrendUI(string countername) {
+
+            var data = await StatisticsClient.GetCounterSummaryStatusAsync(deviceID);
+            var filter = (from d in data.Statistics where d.CounterName == countername select d).FirstOrDefault();
+
+            var colour = new SolidColorBrush(Windows.UI.Colors.Red);
+
+            if (filter.TimeFrameResult.ElementAt(0).Status.ToString() == "Green") { colour.Color = Windows.UI.Colors.Green; }
+
+            if (filter.TimeFrameResult.ElementAt(0).Status.ToString() == "Yellow") { colour.Color = Windows.UI.Colors.Yellow; }
+
+
+            CurrentStatusGrid.Children.Add(new Rectangle { Fill = colour});
+            CurrentStatusGrid.Children.Add(new TextBlock
+            {
+                Margin = new Thickness(24, 27, 0, 0),
+                Text = "Now\n" + filter.TimeFrameResult.ElementAt(0).Trend.ToString(),
+                FontSize = 15
+            });
+
+        }
+
+
+        private async void Generate10TrendUI(string countername)
+        {
+
+            var data = await StatisticsClient.GetCounterSummaryStatusAsync(deviceID);
+            var filter = (from d in data.Statistics where d.CounterName == countername select d).FirstOrDefault();
+
+            var colour = new SolidColorBrush(Windows.UI.Colors.Red);
+
+            if (filter.TimeFrameResult.ElementAt(1).Status.ToString() == "Green") { colour.Color = Windows.UI.Colors.Green; }
+
+            if (filter.TimeFrameResult.ElementAt(1).Status.ToString() == "Yellow") { colour.Color = Windows.UI.Colors.Yellow; }
+
+
+            _10StatusGrid.Children.Add(new Rectangle { Fill = colour });
+            _10StatusGrid.Children.Add(new TextBlock
+            {
+                Margin = new Thickness(24, 27, 0, 0),
+                Text = "10 Mins\n" + " " + filter.TimeFrameResult.ElementAt(1).Trend.ToString(),
+                FontSize = 15
+            });
+
+        }
+        private async void Generate20TrendUI(string countername)
+        {
+
+            var data = await StatisticsClient.GetCounterSummaryStatusAsync(deviceID);
+            var filter = (from d in data.Statistics where d.CounterName == countername select d).FirstOrDefault();
+
+            var colour = new SolidColorBrush(Windows.UI.Colors.Red);
+
+            if (filter.TimeFrameResult.ElementAt(2).Status.ToString() == "Green") { colour.Color = Windows.UI.Colors.Green; }
+
+            if (filter.TimeFrameResult.ElementAt(2).Status.ToString() == "Yellow") { colour.Color = Windows.UI.Colors.Yellow; }
+
+
+            _20StatusGrid.Children.Add(new Rectangle { Fill = colour });
+            _20StatusGrid.Children.Add(new TextBlock
+            {
+                Margin = new Thickness(24,27, 0,0),
+                Text = "20 Mins\n" + filter.TimeFrameResult.ElementAt(2).Trend.ToString(),
+                FontSize = 15
+            });
+
+        }
+        private async void Generate30TrendUI(string countername)
+        {
+
+            var data = await StatisticsClient.GetCounterSummaryStatusAsync(deviceID);
+            var filter = (from d in data.Statistics where d.CounterName == countername select d).FirstOrDefault();
+
+            var colour = new SolidColorBrush(Windows.UI.Colors.Red);
+
+            if (filter.TimeFrameResult.ElementAt(3).Status.ToString() == "Green") { colour.Color = Windows.UI.Colors.Green; }
+
+            if (filter.TimeFrameResult.ElementAt(3).Status.ToString() == "Yellow") { colour.Color = Windows.UI.Colors.Yellow; }
+
+
+            _30StatusGrid.Children.Add(new Rectangle { Fill = colour });
+            _30StatusGrid.Children.Add(new TextBlock
+            {
+                Margin = new Thickness(24, 27, 0, 0),
+                Text = "30 Mins\n" + filter.TimeFrameResult.ElementAt(3).Trend.ToString(),
+                FontSize = 15
+            });
+
         }
 
         /// <summary>
@@ -153,13 +237,29 @@ namespace MetroMonitor.DesktopInterface
             
             var list = DSList.SelectedItem;
             var selectedData = (Grid)list;
-          //  var t = selectedData.GetValue(
-       //    var tb = (from t in selectedData.Children where t.Equals(typeof(TextBlock)) select t).FirstOrDefault();
-
+         
             var tb = (TextBlock)selectedData.Children[1];
-           // var txtb =(TextBlock) tb;
+
+            deviceID = (int)tb.DataContext;
             loadCounterStatusesFromDevice((int)tb.DataContext);
 
+        }
+
+        private void CSList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (CSList.SelectedItem != null)
+            {
+                var list = CSList.SelectedItem;
+                var selectedData = (Grid)list;
+
+                var tb = (TextBlock)selectedData.Children[1];
+
+                GenerateCurrentTrendUI(tb.Text);
+                Generate10TrendUI(tb.Text);
+                Generate20TrendUI(tb.Text);
+                Generate30TrendUI(tb.Text);
+
+            }
         }
     }
 }

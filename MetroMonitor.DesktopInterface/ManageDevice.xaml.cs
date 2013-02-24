@@ -97,6 +97,7 @@ namespace MetroMonitor.DesktopInterface
                 DeviceEditStatus.Text = "Device Has Been Sucessfully Edited";
                 
             }
+            LoadDeviceDropDownContent();
         }
         /// <summary>
         /// Invoked when this page is about to be displayed in a Frame.

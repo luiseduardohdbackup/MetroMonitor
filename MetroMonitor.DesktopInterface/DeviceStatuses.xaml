@@ -36,10 +36,19 @@
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>
-        <ListView x:Name="DSList" HorizontalAlignment="Left" Height="470" Margin="85,25,0,0" Grid.Row="1" VerticalAlignment="Top" Width="475" SelectionChanged="DeviceStatusListView_SelectionChanged"/>
+        <ListView x:Name="DSList" HorizontalAlignment="Left" Height="383" Margin="85,25,0,0" Grid.Row="1" VerticalAlignment="Top" Width="475" SelectionChanged="DeviceStatusListView_SelectionChanged"/>
         <TextBlock HorizontalAlignment="Left" Margin="145,395,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="{x:Null}"/>
-        <TextBlock x:Name="counterStatusesTB" HorizontalAlignment="Left" Margin="245,537,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <ListView x:Name="CSList" HorizontalAlignment="Left" Height="470" Margin="800,25,0,0" Grid.Row="1" VerticalAlignment="Top" Width="475" SelectionChanged="DeviceStatusListView_SelectionChanged"/>
+        <ListView x:Name="CSList" HorizontalAlignment="Left" Height="383" Margin="800,25,0,0" Grid.Row="1" VerticalAlignment="Top" Width="475" SelectionChanged="CSList_SelectionChanged" />
+        <Grid x:Name="CurrentStatusGrid" HorizontalAlignment="Left" Height="100" Margin="320,440,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
+        <Grid x:Name="_10StatusGrid" HorizontalAlignment="Left" Height="100" Margin="520,440,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100">
+            <Grid x:Name="CurrentStatusGrid_Copy1" HorizontalAlignment="Left" Height="100" Margin="180,658,-180,-658" VerticalAlignment="Top" Width="100"/>
+        </Grid>
+        <Grid x:Name="_20StatusGrid" HorizontalAlignment="Left" Height="100" Margin="730,440,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100">
+            <Grid x:Name="CurrentStatusGrid_Copy3" HorizontalAlignment="Left" Height="100" Margin="180,658,-180,-658" VerticalAlignment="Top" Width="100"/>
+        </Grid>
+        <Grid x:Name="_30StatusGrid" HorizontalAlignment="Left" Height="100" Margin="935,440,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100">
+            <Grid x:Name="CurrentStatusGrid_Copy5" HorizontalAlignment="Left" Height="100" Margin="180,658,-180,-658" VerticalAlignment="Top" Width="100"/>
+        </Grid>
 
 
         <VisualStateManager.VisualStateGroups>

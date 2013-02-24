@@ -38,7 +38,7 @@ namespace MetroMonitor.WebService
 
 
         public Dictionary<int, string> GetAvailableDevices() {
-            this.SendNotification("Device Status");
+           
             return _dataAccessService.GetAvailableDevice();
         }
 
