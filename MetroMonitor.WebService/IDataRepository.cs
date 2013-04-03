@@ -34,7 +34,7 @@ namespace MetroMonitor.WebService
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
-        // TODO: Add your service operations here
+       
      }
  
 
